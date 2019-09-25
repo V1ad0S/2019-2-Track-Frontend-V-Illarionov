@@ -15,11 +15,17 @@
 
 export default function convertBytesToHuman(bytes) {
 
-  if ((typeof(bytes) !== "number") || (bytes < 0) || (bytes === Infinity)) {
+  if (
+    (typeof(bytes) !== "number") ||
+    (bytes < 0) ||
+    !(isFinite(bytes)) ||
+    (isNaN(bytes)) ||
+    !(Number.isInteger(bytes))
+  ) {
     return false
   }
 
-  let units = [' B', ' KB', ' MB', ' GB', ' TB', 'PB']
+  let units = [' B', ' KB', ' MB', ' GB', ' TB', ' PB', ' EB', ' ZB', ' YB']
   let i = 0
 
   while (bytes >= 1024) {
