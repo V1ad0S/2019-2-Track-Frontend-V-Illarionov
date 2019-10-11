@@ -18,8 +18,19 @@ body {
     line-height: 20px;
 }
 
-chat-header {
+app-header {
   z-index: 1;
+  height: 60px;
+  width: 100%;
+  background-color: #8E24AA;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-shadow: 0 0 5px 2px;
+}
+
+chats-list {
+  display: none;
 }
 
 message-form {
@@ -27,7 +38,7 @@ message-form {
   flex-direction: column;
 }
 
-.chat-window {
+.main-window {
     display: flex;
     flex-direction: column;
 }

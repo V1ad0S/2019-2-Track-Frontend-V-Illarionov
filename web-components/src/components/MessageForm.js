@@ -2,104 +2,104 @@ const messagesArrayKey = 'messagesArray';
 
 const template = document.createElement('template');
 template.innerHTML = `
-        <style>
-        form-input {
-            display: flex;
-            flex-direction: row;
-        }
-        
-        .form-chat {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .chat-container {
-            height: calc(100vh - 102px);
-            display: flex;
-            flex-direction: column;
-            background-color: #EEE;
-            overflow-y: scroll;
-        }
-
-        .message-container {
-            width: auto;
-            max-width: 60%;
-            min-width: 12%;
-            display: inline-flex;
-            flex-direction: column;
-            border-radius: 5px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        .message-text {
-            color: black;
-            font-size: 17px;
-            letter-spacing: 0.05em;
-            word-wrap: break-word;
-            word-break: break-word;
-            padding: 5px 10px;
-            display: flex;
-            align-self: flex-start;
-            align-items: center;
-        }
-
-        .message-time {
-            user-select: none;
-            color: #777;
-            font-size: 12px;
-            align-self: flex-end;
-            line-height: 15px;
-            margin-right: 7px;
-        }
-
-        .right-messages {
-            position: relative;
-            justify-content: flex-end;
-            align-items: flex-end;
-            align-self: flex-end;
-            background-color: #8E24AA25;
-            margin-right: 15px;
-            box-shadow: 0 1px 0;
-        }
-        
-        .right-messages::before {
-            content: ' ';
-            position: absolute;
-            width: 0;
-            height: 0;
-            right: -14px;
-            bottom: 3px;
-            border: 7px solid;
-            border-color: transparent transparent #e2d2e6 #e2d2e6;
-        }
-
-        .left-messages {
-            position: relative;
-            justify-content: flex-start;
-            align-items: flex-start;
-            align-self: flex-start;
-            background-color: #FAFAFA;
-            margin-left: 20px;
-            box-shadow: 0 1px 0;
-        }
-
-        
-        .left-messages::before {
-            content: ' ';
-            position: absolute;
-            width: 0;
-            height: 0;
-            left: -14px;
-            bottom: 3px;
-            border: 7px solid;
-            border-color: transparent #fff #fff transparent;
-        }
-        
-        input[type=submit] {
-            visibility: collapse;
-        }
+    <style>
+      form-input {
+        display: flex;
+        flex-direction: row;
+      }
+    
+      .form-chat {
+        display: flex;
+        flex-direction: column;
+      }
+    
+      .chat-container {
+        height: calc(100vh - 102px);
+        display: flex;
+        flex-direction: column;
+        background-color: #EEE;
+        overflow-y: scroll;
+      }
+    
+      .message-container {
+        width: auto;
+        max-width: 60%;
+        min-width: 12%;
+        display: inline-flex;
+        flex-direction: column;
+        border-radius: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    
+      .message-text {
+        color: black;
+        font-size: 17px;
+        letter-spacing: 0.05em;
+        word-wrap: break-word;
+        word-break: break-word;
+        padding: 5px 10px;
+        display: flex;
+        align-self: flex-start;
+        align-items: center;
+      }
+    
+      .message-time {
+        user-select: none;
+        color: #777;
+        font-size: 12px;
+        align-self: flex-end;
+        line-height: 15px;
+        margin-right: 7px;
+      }
+    
+      .right-messages {
+        position: relative;
+        justify-content: flex-end;
+        align-items: flex-end;
+        align-self: flex-end;
+        background-color: #8E24AA25;
+        margin-right: 15px;
+        box-shadow: 0 1px 0;
+      }
+    
+      .right-messages::before {
+        content: ' ';
+        position: absolute;
+        width: 0;
+        height: 0;
+        right: -14px;
+        bottom: 3px;
+        border: 7px solid;
+        border-color: transparent transparent #e2d2e6 #e2d2e6;
+      }
+    
+      .left-messages {
+        position: relative;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-self: flex-start;
+        background-color: #FAFAFA;
+        margin-left: 20px;
+        box-shadow: 0 1px 0;
+      }
+      
+      .left-messages::before {
+        content: ' ';
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: -14px;
+        bottom: 3px;
+        border: 7px solid;
+        border-color: transparent #fff #fff transparent;
+      }
+      
+      input[type=submit] {
+        visibility: collapse;
+      }
     </style>
+    
     <form class="form-chat">
         <div class="chat-container"></div>
         <form-input name="message-text" placeholder="Cообщение"></form-input>
