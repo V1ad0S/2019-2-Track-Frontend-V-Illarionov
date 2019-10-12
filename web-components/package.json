@@ -1,5 +1,9 @@
 {
-  "private": true,
+  "name": "2019-2-Track-Frontend-V-Illarionov",
+  "homepage": "https://V1ad0S.github.io/2019-2-Track-Frontend-V-Illarionov/",
+  "description": "Mail.Ru Group Frontend Track course, 2019",
+  "version": "0.1.0",
+  "author": "Vladislav Illarionov",
   "scripts": {
     "lint": "eslint .",
     "test": "npm run lint",
