@@ -2,21 +2,26 @@ const template = document.createElement('template');
 template.innerHTML = `
     <style>
       .chat-header {
+        height: 100%;
         width: 100%;
         display: none;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
       }
 
       .chatlist-header {
+        height: 100%;
         width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
       }
 
       button {
-        width: 60px;
+        height: 6vh;
+        width: 6vh;
         color: #FFFC;
         background-color: #8E24AA;
         display: inline-block;
@@ -25,24 +30,28 @@ template.innerHTML = `
         outline: none;
         border-radius: 100%;
         transition: 0.2s;
+        margin: 3%;
       }
       button:focus, button:hover { color: #FFFF; }
       button:active { background: #FFF5; }
       
       .button-img {
-        height: 40px;
-        width: 40px;
+        height: 3vh;
+        width: 3vh;
         fill: currentColor;
       }
       
       .header {
-        margin-left: -50%;
+        line-height: 5vh;
+        font-weight: 600;
+        margin-left: -40%;
+        font-size: 4vh;
         color: #FFF;
       }
       
       .companion {
         height: 100%;
-        width: calc(100% - 200px);
+        flex-grow: 15;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -52,6 +61,7 @@ template.innerHTML = `
         height: 100%;
         display: flex;
         align-items: center;
+        margin-right: 2vh;
       }
       
       .companion-info {
@@ -63,19 +73,22 @@ template.innerHTML = `
       }
       
       .companion_name {
-        line-height: 30px;
-        font-size: 30px;
+        max-width: 40vw;
+        overflow-x: hidden;
+        line-height: 4vh;
+        font-weight: bold;
+        font-size: 3vh;
         color: white;
       }
       
       .companion_status {
-        font-size: 14px;
+        font-size: 2vh;
+        font-weight: 200;
         color: #D1A7DD;
         align-self: center;
       }
       
       .companion_logo {
-        height: 50px;
         fill: currentColor;
       }
     </style>
@@ -88,7 +101,15 @@ template.innerHTML = `
                 <rect y="204" width="408" height="40"/>
                 <rect y="306" width="408" height="40"/>
             </svg></button>
-        <h1 class="header">Messenger</h1>
+        <span class="header">Messenger</span>
+        <button class="button-search-chatlist">
+            <svg class="button-img" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                viewBox="0 0 56.966 56.966" xml:space="preserve">
+                <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23
+                    s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92
+                    c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17
+                    s-17-7.626-17-17S14.61,6,23.984,6z"/>
+            </svg></button>
     </div>
     <div class="chat-header">
         <button class="button-backward">
@@ -99,7 +120,7 @@ template.innerHTML = `
         <div class="companion">
             <div class="companion-image">
                 <svg version="1.1" class="companion_logo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                    viewBox="0 0 55 55" width="80px" height="80px" fill="white" xml:space="preserve">
+                    viewBox="0 0 55 55" width="7vh" height="7vh" fill="white" xml:space="preserve">
                     <path d="M55,27.5C55,12.337,42.663,0,27.5,0S0,12.337,0,27.5c0,8.009,3.444,15.228,8.926,20.258l-0.026,0.023l0.892,0.752
                         c0.058,0.049,0.121,0.089,0.179,0.137c0.474,0.393,0.965,0.766,1.465,1.127c0.162,0.117,0.324,0.234,0.489,0.348
                         c0.534,0.368,1.082,0.717,1.642,1.048c0.122,0.072,0.245,0.142,0.368,0.212c0.613,0.349,1.239,0.678,1.88,0.98
@@ -122,7 +143,7 @@ template.innerHTML = `
                 <span class="companion_name">Дженнифер</span>
                 <span class="companion_status">была 2 часа назад</span>
             </div></div>
-        <button class="button-search">
+        <button class="button-search-chat">
             <svg class="button-img" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                 viewBox="0 0 56.966 56.966" xml:space="preserve">
                 <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23
@@ -154,7 +175,7 @@ class AppHeader extends HTMLElement {
     this.$header = this.$chatlist_header.querySelector('.header');
 
     this.$button_backward = this.$chat_header.querySelector('.button-backward');
-    this.$button_search = this.$chat_header.querySelector('.button-search');
+    this.$button_search = this.$chat_header.querySelector('.button-search-chat');
     this.$button_settings = this.$chat_header.querySelector('.button-settings');
     this.$companion = this.$chat_header.querySelector('.companion');
 

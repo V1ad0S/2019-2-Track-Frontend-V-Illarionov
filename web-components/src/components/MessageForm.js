@@ -4,17 +4,20 @@ const template = document.createElement('template');
 template.innerHTML = `
     <style>
       form-input {
+        height: 6vh;
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
       }
     
       .form-chat {
+        height: 100%;
         display: flex;
         flex-direction: column;
       }
     
       .chat-container {
-        height: calc(100vh - 102px);
+        height: 85vh;
         display: flex;
         flex-direction: column;
         background-color: #EEE;
@@ -22,23 +25,25 @@ template.innerHTML = `
       }
     
       .message-container {
-        width: auto;
-        max-width: 60%;
-        min-width: 12%;
+        line-height: 4vh;
+        max-width: 80%;
+        min-width: 20%;
         display: inline-flex;
         flex-direction: column;
-        border-radius: 5px;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        border-radius: 1vh;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
       }
     
       .message-text {
         color: black;
-        font-size: 17px;
-        letter-spacing: 0.05em;
+        font-size: 2vh;
+        letter-spacing: 0.07em;
         word-wrap: break-word;
         word-break: break-word;
-        padding: 5px 10px;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        padding-top: 0.02em;
         display: flex;
         align-self: flex-start;
         align-items: center;
@@ -47,10 +52,10 @@ template.innerHTML = `
       .message-time {
         user-select: none;
         color: #777;
-        font-size: 12px;
+        font-size: 2vh;
         align-self: flex-end;
-        line-height: 15px;
-        margin-right: 7px;
+        line-height: 3vh;
+        margin-right: 1vh;
       }
     
       .right-messages {
@@ -59,8 +64,7 @@ template.innerHTML = `
         align-items: flex-end;
         align-self: flex-end;
         background-color: #8E24AA25;
-        margin-right: 15px;
-        box-shadow: 0 1px 0;
+        margin-right: 2vh;
       }
     
       .right-messages::before {
@@ -80,8 +84,7 @@ template.innerHTML = `
         align-items: flex-start;
         align-self: flex-start;
         background-color: #FAFAFA;
-        margin-left: 20px;
-        box-shadow: 0 1px 0;
+        margin-left: 2vh;
       }
       
       .left-messages::before {
@@ -127,8 +130,7 @@ class MessageForm extends HTMLElement {
 
   onSubmitClicked() {
     this.$form.dispatchEvent(new Event('submit'));
-    this.$submit_button.style.visibility = 'hidden';
-    this.$submit_button.style.marginLeft = '-35px';
+    this.$submit_button.style.display = 'none';
     this.$input.$input.focus();
   }
 
@@ -159,11 +161,9 @@ class MessageForm extends HTMLElement {
   }
 
   onKeyUp() {
-    this.$submit_button.style.marginLeft = '5px';
-    this.$submit_button.style.visibility = 'inherit';
+    this.$submit_button.style.display = 'inline-block';
     if (this.$input.value === '') {
-      this.$submit_button.style.visibility = 'hidden';
-      this.$submit_button.style.marginLeft = '-35px';
+      this.$submit_button.style.display = 'none';
     }
   }
 
