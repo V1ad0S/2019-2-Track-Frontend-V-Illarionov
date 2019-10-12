@@ -30,11 +30,11 @@ app-header {
 }
 
 chats-list {
-  display: none;
+  display: flex;
 }
 
 message-form {
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 
