@@ -45,13 +45,13 @@ template.innerHTML = `
     .submit-button:hover { color: #8E24AABB; }
     .submit-button:active { background: #0002; }
 
-    #attach-button-img {
+    .attach-button-img {
       height: 30px;
       width: 30px;
       padding-top: 4px;
       fill: currentColor;
     }
-    #submit-button-img {
+    .submit-button-img {
       height: 30px;
       width: 30px;
       padding-top: 4px;
@@ -59,14 +59,14 @@ template.innerHTML = `
     }
   </style>
   <input type="text">
-  <button class="attach-button"><svg id="attach-button-img" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+  <button class="attach-button"><svg class="attach-button-img" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
  width="510px" height="510px" viewBox="0 0 510 510" xml:space="preserve">
 <path d="M140.25,395.25C63.75,395.25,0,331.5,0,255s63.75-140.25,140.25-140.25H408c56.1,0,102,45.9,102,102
 c0,56.1-45.9,102-102,102H191.25c-35.7,0-63.75-28.05-63.75-63.75s28.05-63.75,63.75-63.75H382.5v38.25H191.25
 c-15.3,0-25.5,10.2-25.5,25.5s10.2,25.5,25.5,25.5H408c35.7,0,63.75-28.05,63.75-63.75S443.7,153,408,153H140.25
 c-56.1,0-102,45.9-102,102c0,56.1,45.9,102,102,102H382.5v38.25H140.25z"/>
 </svg></button>
-  <button type="submit" class="submit-button"><svg id="submit-button-img" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+  <button type="submit" class="submit-button"><svg class="submit-button-img" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
  viewBox="0 0 448 448"  xml:space="preserve">
 <polygon points="0.213,32 0,181.333 320,224 0,266.667 0.213,416 448,224"/>
 </svg></button>
