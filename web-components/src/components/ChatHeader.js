@@ -83,34 +83,34 @@ template.innerHTML = `
         .button-settings:focus, .button-settings:hover { background: rgba(255,255,255,.2); }
         .button-settings:active { background: rgba(255,255,255,.4); }
         
-        #companion_logo {
+        .companion_logo {
             height: 50px;
             fill: currentColor;
         }
         
-        #backward-button-img {
+        .backward-button-img {
             height: 50px;
             width: 30px;
             fill: #F0F0F0;
         }
-        #search-button-img {
+        .search-button-img {
             height: 50px;
             width: 30px;
             fill: #F0F0F0;
         }
-        #settings-button-img {
+        .settings-button-img {
             height: 50px;
             width: 30px;
             fill: #F0F0F0;
         }
     </style>
     <div class="chat-header">
-        <button class="button-backward"><svg id="backward-button-img" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+        <button class="button-backward"><svg class="backward-button-img" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
  width="408px" height="408px" viewBox="0 0 408 408" xml:space="preserve">
 <path d="M408,178.5H96.9L239.7,35.7L204,0L0,204l204,204l35.7-35.7L96.9,229.5H408V178.5z"/>
 </svg></button>
         <div class="companion">
-            <div class="companion-image"><svg version="1.1" id="companion_logo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+            <div class="companion-image"><svg version="1.1" class="companion_logo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 viewBox="0 0 55 55" width="80px" height="80px" fill="white" xml:space="preserve">
 <path d="M55,27.5C55,12.337,42.663,0,27.5,0S0,12.337,0,27.5c0,8.009,3.444,15.228,8.926,20.258l-0.026,0.023l0.892,0.752
 c0.058,0.049,0.121,0.089,0.179,0.137c0.474,0.393,0.965,0.766,1.465,1.127c0.162,0.117,0.324,0.234,0.489,0.348
@@ -134,14 +134,14 @@ c-0.252,0.137-0.502,0.297-0.752,0.476C5.276,41.792,2,35.022,2,27.5z"/>
                 <span class="companion_status">была 2 часа назад</span>
             </div>
         </div>
-        <button class="button-search"><svg id="search-button-img" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+        <button class="button-search"><svg class="search-button-img" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
  viewBox="0 0 56.966 56.966" xml:space="preserve">
 <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23
 s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92
 c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17
 s-17-7.626-17-17S14.61,6,23.984,6z"/>
 </svg></button>
-        <button class="button-settings"><svg id="settings-button-img" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+        <button class="button-settings"><svg class="settings-button-img" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
  viewBox="0 0 512 512" xml:space="preserve">
 <circle cx="256" cy="256" r="64"/>
 <circle cx="256" cy="448" r="64"/>
