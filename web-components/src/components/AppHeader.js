@@ -3,6 +3,7 @@ template.innerHTML = `
     <style>
       .button-backward {
         width: 60px;
+        color: #FFFC;
         background-color: #8E24AA;
         display: inline-block;
         cursor: pointer;
@@ -11,8 +12,8 @@ template.innerHTML = `
         border-radius: 100%;
         transition: 0.2s;
       }
-      .button-backward:focus, .button-backward:hover { background: rgba(255,255,255,.2); }
-      .button-backward:active { background: rgba(255,255,255,.4); }
+      .button-backward:focus, .button-backward:hover { color: #FFFF; }
+      .button-backward:active { background: #FFF5; }
       
       .companion {
         height: 100%;
@@ -44,12 +45,13 @@ template.innerHTML = `
       
       .companion_status {
         font-size: 14px;
-        color: #d1a7dd;
+        color: #D1A7DD;
         align-self: center;
       }
       
       .button-search {
         width: 60px;
+        color: #FFFC;
         background-color: #8E24AA;
         display: inline-block;
         cursor: pointer;
@@ -58,11 +60,12 @@ template.innerHTML = `
         border-radius: 100%;
         transition: 0.2s;
       }
-      .button-search:focus, .button-search:hover { background: rgba(255,255,255,.2); }
-      .button-search:active { background: rgba(255,255,255,.4); }
+      .button-search:focus, .button-search:hover { color: #FFFF; }
+      .button-search:active { background: background: #FFF5; }
       
       .button-settings {
         width: 60px;
+        color: #FFFC;
         background-color: #8E24AA;
         display: inline-block;
         cursor: pointer;
@@ -71,8 +74,8 @@ template.innerHTML = `
         border-radius: 100%;
         transition: 0.2s;
       }
-      .button-settings:focus, .button-settings:hover { background: rgba(255,255,255,.2); }
-      .button-settings:active { background: rgba(255,255,255,.4); }
+      .button-settings:focus, .button-settings:hover { color: #FFFF; }
+      .button-settings:active { background: background: #FFF5; }
       
       #companion_logo {
         height: 50px;
@@ -82,17 +85,17 @@ template.innerHTML = `
       #backward-button-img {
         height: 50px;
         width: 30px;
-        fill: #F0F0F0;
+        fill: currentColor;
       }
       #search-button-img {
         height: 50px;
         width: 30px;
-        fill: #F0F0F0;
+        fill: currentColor;
       }
       #settings-button-img {
         height: 50px;
         width: 30px;
-        fill: #F0F0F0;
+        fill: currentColor;
       }
     </style>
     
@@ -152,8 +155,20 @@ template.innerHTML = `
 class AppHeader extends HTMLElement {
   constructor() {
     super();
+    this.$message_form = document.querySelector('message-form');
+    this.$chats_list = document.querySelector('chats-list');
     this.shadowRoot = this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.$button_backward = this.shadowRoot.querySelector('.button-backward');
+    this.$button_search = this.shadowRoot.querySelector('.button-search');
+    this.$button_settings = this.shadowRoot.querySelector('.button-settings');
+
+    this.$button_backward.addEventListener('click', this.onBackwardClicked.bind(this));
+  }
+
+  onBackwardClicked() {
+    this.$message_form.style.display = 'none';
+    this.$chats_list.style.display = 'flex';
   }
 }
 

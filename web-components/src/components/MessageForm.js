@@ -114,10 +114,12 @@ class MessageForm extends HTMLElement {
     this.$form = this.shadowRoot.querySelector('form');
     this.$input = this.shadowRoot.querySelector('form-input');
     this.$chatContainer = this.shadowRoot.querySelector('.chat-container');
-    this.$button = this.$input.$button;
+    this.$attach_button = this.$input.$attach_button;
+    this.$submit_button = this.$input.$submit_button;
     this.myRender();
 
-    this.$button.addEventListener('click', this.onSubmitClicked.bind(this));
+    this.$attach_button.addEventListener('click', this.onAttachClicked.bind(this));
+    this.$submit_button.addEventListener('click', this.onSubmitClicked.bind(this));
     this.$form.addEventListener('submit', this.onSubmit.bind(this));
     this.$form.addEventListener('keypress', this.onKeyPress.bind(this));
     this.$form.addEventListener('keyup', this.onKeyUp.bind(this));
@@ -125,8 +127,13 @@ class MessageForm extends HTMLElement {
 
   onSubmitClicked() {
     this.$form.dispatchEvent(new Event('submit'));
-    this.$button.style.visibility = 'hidden';
-    this.$button.style.marginLeft = '-35px';
+    this.$submit_button.style.visibility = 'hidden';
+    this.$submit_button.style.marginLeft = '-35px';
+    this.$input.$input.focus();
+  }
+
+  onAttachClicked() {
+    //  It's only test
     this.$input.$input.focus();
   }
 
@@ -152,11 +159,11 @@ class MessageForm extends HTMLElement {
   }
 
   onKeyUp() {
-    this.$button.style.marginLeft = '5px';
-    this.$button.style.visibility = 'inherit';
+    this.$submit_button.style.marginLeft = '5px';
+    this.$submit_button.style.visibility = 'inherit';
     if (this.$input.value === '') {
-      this.$button.style.visibility = 'hidden';
-      this.$button.style.marginLeft = '-35px';
+      this.$submit_button.style.visibility = 'hidden';
+      this.$submit_button.style.marginLeft = '-35px';
     }
   }
 

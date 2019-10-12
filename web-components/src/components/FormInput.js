@@ -87,7 +87,8 @@ class FormInput extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
 
     this.$input = this.shadowRoot.querySelector('input');
-    this.$button = this.shadowRoot.querySelector('.submit-button');
+    this.$submit_button = this.shadowRoot.querySelector('.submit-button');
+    this.$attach_button = this.shadowRoot.querySelector('.attach-button');
   }
 
   static get observedAttributes() {
