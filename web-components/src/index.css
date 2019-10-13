@@ -35,6 +35,9 @@ app-header {
 
 chats-list {
   display: flex;
+  flex-direction: column;
+  height: 91vh;
+  overflow-y: scroll;
 }
 
 message-form {
@@ -44,6 +47,28 @@ message-form {
 }
 
 .main-window {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-chat {
+  position: fixed;
+  right: 3vh;
+  bottom: 3vh;
+  width: 8vh;
+  height: 8vh;
+  border-radius: 100%;
+  color: #0008;
+  background-color: #F5CF42;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  box-shadow: 0px 2px 4px 0px #000C;
+  transition: 0.2s;
+}
+
+.create-chat-img {
+  width: 50%;
+  height: 50%;
 }

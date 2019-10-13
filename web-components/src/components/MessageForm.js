@@ -1,5 +1,3 @@
-const messagesArrayKey = 'messagesArray';
-
 const template = document.createElement('template');
 template.innerHTML = `
     <style>
@@ -121,7 +119,9 @@ class MessageForm extends HTMLElement {
     this.$chatContainer = this.shadowRoot.querySelector('.chat-container');
     this.$attach_button = this.$input.$attach_button;
     this.$submit_button = this.$input.$submit_button;
-    this.myRender();
+
+    this.$idChat = 0;
+    this.$chatsArrayKey = 'chatsArray';
 
     this.$attach_button.addEventListener('click', this.onAttachClicked.bind(this));
     this.$submit_button.addEventListener('click', this.onSubmitClicked.bind(this));
@@ -146,13 +146,13 @@ class MessageForm extends HTMLElement {
     if (this.$input.value === '') {
       return;
     }
-    this.messageObj = {};
-    this.messageObj.messageText = this.$input.value;
-    this.messageObj.messageAuthor = 'Me';
-    this.messageObj.sendingTime = new Date();
-    this.addMessage(this.messageObj);
+    const messageObj = {};
+    messageObj.messageText = this.$input.value;
+    messageObj.messageAuthor = 'Me';
+    messageObj.sendingTime = new Date();
     this.$input.value = '';
-    this.messageToLocal(this.messageObj);
+    this.addMessage(messageObj);
+    this.messageToLocal(messageObj);
   }
 
   onKeyPress(event) {
@@ -198,21 +198,20 @@ class MessageForm extends HTMLElement {
   }
 
   messageToLocal(messageObj) {
-    this.storageMessageArray = JSON.parse(localStorage.getItem(messagesArrayKey));
-    if (this.storageMessageArray === null) {
-      this.storageMessageArray = [];
+    const storageChatArray = JSON.parse(localStorage.getItem(this.$chatsArrayKey));
+    if (storageChatArray[this.$idChat].messages.length === 0) {
+      storageChatArray[this.$idChat].messages = [];
     }
-    this.storageMessageArray.push(messageObj);
-    localStorage.setItem(messagesArrayKey, JSON.stringify(this.storageMessageArray));
+    storageChatArray[this.$idChat].messages.push(messageObj);
+    localStorage.setItem(this.$chatsArrayKey, JSON.stringify(storageChatArray));
   }
 
-  myRender() {
-    const storageMessageArray = JSON.parse(localStorage.getItem(messagesArrayKey));
-    if (storageMessageArray === null) {
-      return;
-    }
-    for (let i = 0; i < storageMessageArray.length; i += 1) {
-      this.addMessage(storageMessageArray[i]);
+  messagesRender() {
+    const storageChatArray = JSON.parse(localStorage.getItem(this.$chatsArrayKey));
+    const chatObj = storageChatArray[this.$idChat];
+
+    for (let i = 0; i < chatObj.messages.length; i += 1) {
+      this.addMessage(chatObj.messages[i]);
     }
   }
 }

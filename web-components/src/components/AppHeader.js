@@ -44,7 +44,7 @@ template.innerHTML = `
       .header {
         line-height: 5vh;
         font-weight: 600;
-        margin-left: -40%;
+        margin-left: -20vw;
         font-size: 4vh;
         color: #FFF;
       }
@@ -164,6 +164,7 @@ template.innerHTML = `
 class AppHeader extends HTMLElement {
   constructor() {
     super();
+    this.$main_window = document.querySelector('.main-window');
     this.$chats_list = document.querySelector('chats-list');
     this.shadowRoot = this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
@@ -184,9 +185,10 @@ class AppHeader extends HTMLElement {
   onBackwardClicked() {
     this.$chatlist_header.style.display = 'flex';
     this.$chat_header.style.display = 'none';
-
-    this.$message_form.style.display = 'none';
-    this.$chats_list.style.display = 'inline-block';
+    this.$chats_list.chatsRender();
+    this.$main_window.removeChild(this.$main_window.lastChild);
+    this.$main_window.querySelector('.create-chat').style.display = 'inline-block';
+    this.$chats_list.style.display = 'flex';
   }
 }
 
