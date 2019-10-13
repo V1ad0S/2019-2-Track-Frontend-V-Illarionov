@@ -1,0 +1,33 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    background-color: #fff;
+    color: #333;
+    font-size: 15px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+chat-header {
+  z-index: 1;
+}
+
+message-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-window {
+    display: flex;
+    flex-direction: column;
+}
