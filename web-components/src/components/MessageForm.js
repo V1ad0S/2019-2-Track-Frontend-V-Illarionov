@@ -105,17 +105,19 @@ template.innerHTML = `
     
     <form class="form-chat">
         <div class="chat-container"></div>
-        <form-input name="message-text" placeholder="Cообщение"></form-input>
     </form>
 `;
-
+/*  <form-input name="message-text" placeholder="Cообщение"></form-input>  */
 class MessageForm extends HTMLElement {
   constructor() {
     super();
     this.shadowRoot = this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.$form = this.shadowRoot.querySelector('form');
-    this.$input = this.shadowRoot.querySelector('form-input');
+    this.$form.appendChild(document.createElement('form-input'));
+    this.$input = this.$form.querySelector('form-input');
+    this.$input.setAttribute('name', 'message-text');
+    this.$input.setAttribute('placeholder', 'Сообщение');
     this.$chatContainer = this.shadowRoot.querySelector('.chat-container');
     this.$attach_button = this.$input.$attach_button;
     this.$submit_button = this.$input.$submit_button;

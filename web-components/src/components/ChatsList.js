@@ -9,10 +9,10 @@ class ChatsList extends HTMLElement {
     super();
     this.shadowRoot = this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.$main_window = document.querySelector('.main-window');
     this.$test_button = this.shadowRoot.querySelector('.test');
 
     this.$app_header = document.querySelector('app-header');
-    this.$message_form = document.querySelector('message-form');
     this.$chats_list = document.querySelector('chats-list');
     this.$chat_header = this.$app_header.$chat_header;
     this.$chatlist_header = this.$app_header.$chatlist_header;
@@ -21,10 +21,13 @@ class ChatsList extends HTMLElement {
   }
 
   onTestClicked() {
+    const chat = document.createElement('message-form');
     this.$chats_list.style.display = 'none';
-    this.$message_form.style.display = 'flex';
+    this.$main_window.appendChild(chat);
+    chat.style.display = 'flex';
     this.$chatlist_header.style.display = 'none';
     this.$chat_header.style.display = 'flex';
+    this.$app_header.$message_form = chat;
   }
 
   /*  chatObj = {

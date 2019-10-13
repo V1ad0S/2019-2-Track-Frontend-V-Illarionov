@@ -164,7 +164,6 @@ template.innerHTML = `
 class AppHeader extends HTMLElement {
   constructor() {
     super();
-    this.$message_form = document.querySelector('message-form');
     this.$chats_list = document.querySelector('chats-list');
     this.shadowRoot = this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
