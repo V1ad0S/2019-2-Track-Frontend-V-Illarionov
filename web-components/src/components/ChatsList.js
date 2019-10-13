@@ -14,15 +14,25 @@ template.innerHTML = `
       .companion-img {
         color: black;
         height: 100%;
-        width: 11vh;
+        height: 11vh;
         align-self: center;
         margin-left: 1vh;
       }
       .companion-logo {
         fill: currentColor;
-        width: 90%;
+
         height: 90%;
         padding-top: 5%;
+      }
+
+      .text-info {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: row;
+        overflow: hidden;
+        border-bottom: 1px solid #0002;
+        margin-left: 2vh;
       }
 
       .message-preview {
@@ -30,11 +40,9 @@ template.innerHTML = `
         height: 100%;
         flex-direction: column;
         justify-content: center;
-        width: 80%;
-        padding-left: 2vh;
+        width: 100%;
         padding-right: 2vh;
         overflow: hidden;
-        border-bottom: 1px solid black;
       }
 
       .companion-name {
@@ -57,7 +65,6 @@ template.innerHTML = `
         flex-direction: column;
         justify-content: center;
         margin-right: 3vh;
-        border-bottom: 1px solid black;
       }
 
       .lastmessage-time {
@@ -99,6 +106,7 @@ class ChatsList extends HTMLElement {
   addChat(chatObj) {
     const divFormatChatElem = document.createElement('div');
     const divFormatCompanionImg = document.createElement('div');
+    const divFormatTextInfo = document.createElement('div');
     const divFormatMessagePreview = document.createElement('div');
     const spanFormatCompanionName = document.createElement('span');
     const spanFormatLastMessageText = document.createElement('span');
@@ -108,6 +116,7 @@ class ChatsList extends HTMLElement {
 
     divFormatChatElem.className = 'chat-elem';
     divFormatCompanionImg.className = 'companion-img';
+    divFormatTextInfo.className = 'text-info';
     divFormatMessagePreview.className = 'message-preview';
     spanFormatCompanionName.className = 'companion-name';
     spanFormatLastMessageText.className = 'lastmessage-text';
@@ -148,17 +157,18 @@ class ChatsList extends HTMLElement {
       spanFormatLastMessageText.innerText = lastmessageObj.messageText;
       spanFormatLastMessageTime.innerText = `${hours}:${minutes}`;
     }
-
     divFormatMessagePreview.appendChild(spanFormatCompanionName);
     divFormatMessagePreview.appendChild(spanFormatLastMessageText);
     divFormatLastMessageInfo.appendChild(spanFormatLastMessageTime);
     divFormatLastMessageInfo.appendChild(divFormatIndicator);
+    divFormatTextInfo.appendChild(divFormatMessagePreview);
+    divFormatTextInfo.appendChild(divFormatLastMessageInfo);
     divFormatChatElem.appendChild(divFormatCompanionImg);
-    divFormatChatElem.appendChild(divFormatMessagePreview);
-    divFormatChatElem.appendChild(divFormatLastMessageInfo);
+    divFormatChatElem.appendChild(divFormatTextInfo);
 
     divFormatChatElem.addEventListener('click', this.openChat.bind(this));
     divFormatChatElem.idChat = chatObj.id;
+    divFormatChatElem.companion_name = chatObj.companion;
 
     this.shadowRoot.appendChild(divFormatChatElem);
   }
@@ -180,6 +190,7 @@ class ChatsList extends HTMLElement {
     this.$chats_list.style.display = 'none';
     this.$main_window.appendChild(chat);
     chat.style.display = 'flex';
+    this.$app_header.$companion_name.innerText = target.companion_name;
     this.$chatlist_header.style.display = 'none';
     this.$chat_header.style.display = 'flex';
     this.$app_header.$message_form = chat;

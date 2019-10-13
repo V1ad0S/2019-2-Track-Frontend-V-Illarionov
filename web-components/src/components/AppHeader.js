@@ -72,7 +72,7 @@ template.innerHTML = `
         user-select: none;
       }
       
-      .companion_name {
+      .companion-name {
         max-width: 40vw;
         overflow-x: hidden;
         line-height: 4vh;
@@ -81,7 +81,7 @@ template.innerHTML = `
         color: white;
       }
       
-      .companion_status {
+      .companion-status {
         font-size: 2vh;
         font-weight: 200;
         color: #D1A7DD;
@@ -140,8 +140,8 @@ template.innerHTML = `
                 </svg>
             </div>
             <div class="companion-info">
-                <span class="companion_name">Дженнифер</span>
-                <span class="companion_status">была 2 часа назад</span>
+                <span class="companion-name"></span>
+                <span class="companion-status">была 2 часа назад</span>
             </div></div>
         <button class="button-search-chat">
             <svg class="button-img" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -178,6 +178,7 @@ class AppHeader extends HTMLElement {
     this.$button_search = this.$chat_header.querySelector('.button-search-chat');
     this.$button_settings = this.$chat_header.querySelector('.button-settings');
     this.$companion = this.$chat_header.querySelector('.companion');
+    this.$companion_name = this.$chat_header.querySelector('.companion-name');
 
     this.$button_backward.addEventListener('click', this.onBackwardClicked.bind(this));
   }
