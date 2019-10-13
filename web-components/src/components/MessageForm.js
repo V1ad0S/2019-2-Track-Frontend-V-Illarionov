@@ -1,3 +1,17 @@
+const indicateArray = ['', '', ''];
+indicateArray[0] = '';
+indicateArray[1] = `
+    <svg class="tick" x="0px" y="0px" width="2vh" height="2vh" viewBox="0 0 448.8 448.8" style="fill: currentColor;" xml:space="preserve">
+        <polygon points="142.8,323.85 35.7,216.75 0,252.45 142.8,395.25 448.8,89.25 413.1,53.55"/>
+    </svg>
+`;
+indicateArray[2] = `
+    <svg class="double-tick" x ="0px" y="0px" width="2vh" height="2vh" viewBox="0 0 594.149 594.149" style="fill: currentColor;" xml:space="preserve">
+        <path d="M448.8,161.925l-35.7-35.7l-160.65,160.65l35.7,35.7L448.8,161.925z M555.899,126.225l-267.75,270.3l-107.1-107.1
+        l-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.7l-142.8-142.8L0,325.125z"/>
+    </svg>
+`;
+
 const template = document.createElement('template');
 template.innerHTML = `
     <style>
@@ -25,7 +39,7 @@ template.innerHTML = `
       .message-container {
         line-height: 4vh;
         max-width: 80%;
-        min-width: 20%;
+        min-width: 30%;
         display: inline-flex;
         flex-direction: column;
         border-radius: 1vh;
@@ -35,7 +49,7 @@ template.innerHTML = `
     
       .message-text {
         color: black;
-        font-size: 2vh;
+        font-size: calc(2vh + 10px);
         letter-spacing: 0.07em;
         word-wrap: break-word;
         word-break: break-word;
@@ -47,6 +61,13 @@ template.innerHTML = `
         align-items: center;
       }
     
+      .message-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
+      }
+
       .message-time {
         user-select: none;
         color: #777;
@@ -54,6 +75,12 @@ template.innerHTML = `
         align-self: flex-end;
         line-height: 3vh;
         margin-right: 1vh;
+      }
+
+      .mes-indicator {
+        height: 3vh;
+        margin-right: 1vh;
+        color: #8E24AA;
       }
     
       .right-messages {
@@ -70,9 +97,9 @@ template.innerHTML = `
         position: absolute;
         width: 0;
         height: 0;
-        right: -14px;
-        bottom: 3px;
-        border: 7px solid;
+        right: -2vh;
+        bottom: 1vh;
+        border: 1vh solid;
         border-color: transparent transparent #e2d2e6 #e2d2e6;
       }
     
@@ -90,9 +117,9 @@ template.innerHTML = `
         position: absolute;
         width: 0;
         height: 0;
-        left: -14px;
-        bottom: 3px;
-        border: 7px solid;
+        left: -2vh;
+        bottom: 1vh;
+        border: 1vh solid;
         border-color: transparent #fff #fff transparent;
       }
       
@@ -172,10 +199,14 @@ class MessageForm extends HTMLElement {
   addMessage(messageObj) {
     const divFormatMessageContainer = document.createElement('div');
     const divFormatMessageText = document.createElement('div');
+    const divFormatMessageInfo = document.createElement('div');
     const divFormatMessageTime = document.createElement('span');
+    const divFormatIndicator = document.createElement('div');
 
     if (messageObj.messageAuthor === 'Me') {
       divFormatMessageContainer.className = 'right-messages message-container';
+      const index = 1;
+      divFormatIndicator.innerHTML = indicateArray[index];
     } else {
       divFormatMessageContainer.className = 'left-messages message-container';
     }
@@ -183,6 +214,8 @@ class MessageForm extends HTMLElement {
     divFormatMessageText.className = 'message-text';
     divFormatMessageText.innerText = messageObj.messageText;
 
+    divFormatMessageInfo.className = 'message-info';
+    divFormatIndicator.className = 'mes-indicator';
     divFormatMessageTime.className = 'message-time';
     const date = new Date(messageObj.sendingTime);
     let hours = date.getHours();
@@ -191,8 +224,10 @@ class MessageForm extends HTMLElement {
     minutes = (minutes < 10) ? (`0${minutes}`) : minutes;
     divFormatMessageTime.innerText = `${hours}:${minutes}`;
 
+    divFormatMessageInfo.appendChild(divFormatMessageTime);
+    divFormatMessageInfo.appendChild(divFormatIndicator);
     divFormatMessageContainer.appendChild(divFormatMessageText);
-    divFormatMessageContainer.appendChild(divFormatMessageTime);
+    divFormatMessageContainer.appendChild(divFormatMessageInfo);
     this.$chatContainer.appendChild(divFormatMessageContainer);
     this.$chatContainer.scrollTop = 9999;
   }

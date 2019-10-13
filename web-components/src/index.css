@@ -67,6 +67,8 @@ message-form {
   box-shadow: 0px 2px 4px 0px #000C;
   transition: 0.2s;
 }
+.create-chat:hover {background: #8E24AAAA;}
+.create-chat:active {background: #8E24AA;}
 
 .create-chat-img {
   width: 50%;

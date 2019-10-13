@@ -1,18 +1,31 @@
 const chatsArrayKey = 'chatsArray';
+const indicateArray = ['', '', ''];
+indicateArray[0] = '';
+indicateArray[1] = `
+    <svg class="tick" x="0px" y="0px" width="3vh" height="3vh" viewBox="0 0 448.8 448.8" style="fill: currentColor;" xml:space="preserve">
+        <polygon points="142.8,323.85 35.7,216.75 0,252.45 142.8,395.25 448.8,89.25 413.1,53.55"/>
+    </svg>
+`;
+indicateArray[2] = `
+    <svg class="double-tick" x ="0px" y="0px" width="3vh" height="3vh" viewBox="0 0 594.149 594.149" style="fill: currentColor;" xml:space="preserve">
+        <path d="M448.8,161.925l-35.7-35.7l-160.65,160.65l35.7,35.7L448.8,161.925z M555.899,126.225l-267.75,270.3l-107.1-107.1
+        l-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.7l-142.8-142.8L0,325.125z"/>
+    </svg>
+`;
 
 const template = document.createElement('template');
 template.innerHTML = `
     <style>
       .chat-elem {
-        display: flex;
+        display: inline-flex;
         flex-direction: row;
-        height: 11vh;
+        line-height: 11vh;
         justify-content: space-between;
         align-items: center;
       }
     
       .companion-img {
-        color: black;
+        color: #9C33FF;
         height: 100%;
         height: 11vh;
         align-self: center;
@@ -27,6 +40,7 @@ template.innerHTML = `
 
       .text-info {
         display: flex;
+        justify-content: center;
         width: 100%;
         height: 100%;
         flex-direction: row;
@@ -61,9 +75,10 @@ template.innerHTML = `
 
       .lastmessage-info {
         display: flex;
-        height: 100%;
+        line-height: 100%;
         flex-direction: column;
         justify-content: center;
+        align-items: flex-end;
         margin-right: 3vh;
       }
 
@@ -73,7 +88,7 @@ template.innerHTML = `
       }
 
       .indicator {
-
+        color: #8E24AA;
       }
     </style>
 `;
@@ -124,6 +139,7 @@ class ChatsList extends HTMLElement {
     spanFormatLastMessageTime.className = 'lastmessage-time';
     divFormatIndicator.className = 'indicator';
 
+    let index = 0;
     const companionImg = `
     <svg version="1.1" class="companion-logo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
         viewBox="0 0 55 55" width="7vh" height="7vh" fill="white" xml:space="preserve">
@@ -148,6 +164,7 @@ class ChatsList extends HTMLElement {
     spanFormatCompanionName.innerText = chatObj.companion;
 
     if (chatObj.messages.length !== 0) {
+      index = 1;
       const lastmessageObj = chatObj.messages[chatObj.messages.length - 1];
       const date = new Date(lastmessageObj.sendingTime);
       let hours = date.getHours();
@@ -157,6 +174,7 @@ class ChatsList extends HTMLElement {
       spanFormatLastMessageText.innerText = lastmessageObj.messageText;
       spanFormatLastMessageTime.innerText = `${hours}:${minutes}`;
     }
+    divFormatIndicator.innerHTML = indicateArray[index];
     divFormatMessagePreview.appendChild(spanFormatCompanionName);
     divFormatMessagePreview.appendChild(spanFormatLastMessageText);
     divFormatLastMessageInfo.appendChild(spanFormatLastMessageTime);
