@@ -40,7 +40,6 @@ template.innerHTML = `
       .submit-button:focus { color: #8E24AACC; }
       .submit-button:hover { color: #8E24AABB; }
       .submit-button:active { background: #0002; }
-
       .attach-button-img {
         height: 4vh;
         padding-top: 4px;
