@@ -18,16 +18,59 @@ body {
     line-height: 20px;
 }
 
-chat-header {
-  z-index: 1;
-}
-
-message-form {
+main-window {
   display: flex;
   flex-direction: column;
 }
 
-.chat-window {
-    display: flex;
-    flex-direction: column;
+app-header {
+  z-index: 1;
+  height: 9vh;
+  background-color: #8E24AA;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-shadow: 0 0 5px 2px;
+}
+
+chats-list {
+  display: flex;
+  flex-direction: column;
+  height: 91vh;
+  overflow-y: scroll;
+}
+
+message-form {
+  height: 91vh;
+  display: none;
+  flex-direction: column;
+}
+
+.main-window {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-chat {
+  position: fixed;
+  right: 3vh;
+  bottom: 3vh;
+  width: 8vh;
+  height: 8vh;
+  border-radius: 100%;
+  color: #0008;
+  background-color: #F5CF42;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  box-shadow: 0px 2px 4px 0px #000C;
+  transition: 0.2s;
+}
+.create-chat:hover {background: #8E24AAAA;}
+.create-chat:active {background: #8E24AA;}
+
+.create-chat-img {
+  width: 50%;
+  height: 50%;
 }
