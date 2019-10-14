@@ -9,8 +9,9 @@ template.innerHTML = `
       }
     
       :host {
+        padding-left: 1vw;
         display: inline-block;
-        border: 1px solid rgba(25, 25, 25, 0.32);
+        border: 1px solid #0002;
       }
     
       .attach-button {
@@ -34,12 +35,27 @@ template.innerHTML = `
         border: none;
         outline: none;
         border-radius: 100%;
-        transition: 0.2s;
         color: #8E24AA;
+        overflow: hidden;
+
+        animation-name: show-submit-button;
+        animation-duration: 0.1s;
+        animation-timing-function: linear;
       }
       .submit-button:focus { color: #8E24AACC; }
       .submit-button:hover { color: #8E24AABB; }
       .submit-button:active { background: #0002; }
+
+      @keyframes show-submit-button {
+        0% {
+          width: 0;
+        }
+
+        100% {
+          width: 6vh;
+        }
+      }
+
       .attach-button-img {
         height: 4vh;
         padding-top: 4px;

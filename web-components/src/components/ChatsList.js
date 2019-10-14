@@ -22,12 +22,35 @@ template.innerHTML = `
         line-height: 11vh;
         justify-content: space-between;
         align-items: center;
+        user-select: none;
+
+        animation-name: create-chat-animation;
+        animation-duration: 0.5s;
+      }
+
+      @keyframes create-chat-animation {
+        0% {
+          width: 0%;
+        }
+
+        100% {
+          width: 100%;
+        }
+      }
+
+      .chat-elem:hover {
+        transition: 0.1s;
+        background: #0002;
+      }
+      .chat-elem:active {
+        transition: 0.2s;
+        background: #0004;
       }
     
       .companion-img {
         color: #9C33FF;
         height: 100%;
-        height: 11vh;
+        line-height: 11vh;
         align-self: center;
         margin-left: 1vh;
       }
@@ -116,6 +139,7 @@ class ChatsList extends HTMLElement {
     this.chatToLocal(chatObj);
     this.addChat(chatObj);
     this.chatCount += 1;
+    this.scrollTop = 9999;
   }
 
   addChat(chatObj) {
@@ -192,6 +216,7 @@ class ChatsList extends HTMLElement {
   }
 
   openChat(event) {
+    this.style.animationName = 'open-chat-animation';
     const chat = document.createElement('message-form');
     let { target } = event;
     while (target.className !== 'chat-elem') {
@@ -204,14 +229,15 @@ class ChatsList extends HTMLElement {
     chat.messagesRender();
     chat.$chatsArrayKey = chatsArrayKey;
 
-    this.$main_window.querySelector('.create-chat').style.display = 'none';
-    this.$chats_list.style.display = 'none';
-    this.$main_window.appendChild(chat);
-    chat.style.display = 'flex';
-    this.$app_header.$companion_name.innerText = target.companion_name;
-    this.$chatlist_header.style.display = 'none';
     this.$chat_header.style.display = 'flex';
+    this.$main_window.querySelector('.create-chat').style.display = 'none';
+    chat.style.display = 'flex';
+    this.$main_window.appendChild(chat);
+    chat.$input.$input.focus();
+    this.$app_header.$companion_name.innerText = target.companion_name;
     this.$app_header.$message_form = chat;
+    this.$chatlist_header.style.display = 'none';
+    this.$chats_list.style.display = 'none';
   }
 
   chatToLocal(chatObj) {
