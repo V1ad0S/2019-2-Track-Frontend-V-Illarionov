@@ -18,5 +18,5 @@ deploy:
     branch:
       - master
       - devel
-      - hw3
+      - hw4
       - /^hw.*$/
