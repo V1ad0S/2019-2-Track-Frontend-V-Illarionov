@@ -32,6 +32,7 @@ template.innerHTML = `
         height: 85vh;
         display: flex;
         flex-direction: column;
+        justify-content: flex-end;
         background-color: #EEE;
         overflow-y: scroll;
       }
@@ -45,6 +46,9 @@ template.innerHTML = `
         border-radius: 1vh;
         margin-top: 1vh;
         margin-bottom: 1vh;
+
+        animation-name: add-message-animation;
+        animation-duration: 0.5s;
       }
     
       .message-text {
@@ -125,6 +129,11 @@ template.innerHTML = `
       
       input[type=submit] {
         visibility: collapse;
+      }
+
+      @keyframes add-message-animation {
+        0% { transform: scale(0); }
+        100% { transform: scale(1); }
       }
     </style>
     

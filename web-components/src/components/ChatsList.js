@@ -23,19 +23,6 @@ template.innerHTML = `
         justify-content: space-between;
         align-items: center;
         user-select: none;
-
-        animation-name: create-chat-animation;
-        animation-duration: 0.5s;
-      }
-
-      @keyframes create-chat-animation {
-        0% {
-          width: 0%;
-        }
-
-        100% {
-          width: 100%;
-        }
       }
 
       .chat-elem:hover {

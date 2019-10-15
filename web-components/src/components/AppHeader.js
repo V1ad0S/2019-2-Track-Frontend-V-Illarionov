@@ -32,8 +32,14 @@ template.innerHTML = `
         transition: 0.2s;
         margin: 3%;
       }
-      button:focus, button:hover { color: #FFFF; }
-      button:active { background: #FFF5; }
+      button:focus { color: #FFFF; }
+      button:hover {
+        background-color: #0002;
+        animation-name: button-hover-animation;
+        animation-duration: 0.4s;
+        animation-timing-function: linear;
+      }
+      button:active { background: #0005; }
       
       .button-img {
         height: 3vh;
@@ -90,6 +96,11 @@ template.innerHTML = `
       
       .companion_logo {
         fill: currentColor;
+      }
+
+      @keyframes button-hover-animation {
+        0% { box-shadow: 0px 0px 0 6vh inset #8E24AA; }
+        100% { box-shadow: 0px 0px 0 0 inset #8E24AA; }
       }
     </style>
     
