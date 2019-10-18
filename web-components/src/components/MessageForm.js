@@ -33,14 +33,19 @@ template.innerHTML = `
         display: flex;
         flex-direction: column;
         background-color: #EEE;
+
+        -webkit-overflow-scrolling: touch;
         overflow-y: scroll;
       }
     
       .message-container {
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        min-height: 8vh;
         line-height: 4vh;
         max-width: 80%;
         min-width: 30%;
-        display: inline-flex;
         flex-direction: column;
         border-radius: 1vh;
         margin-top: 1vh;
@@ -102,7 +107,7 @@ template.innerHTML = `
         height: 0;
         right: -2vh;
         bottom: 1vh;
-        border: 1vh solid;
+        border: 2vh solid;
         border-color: transparent transparent #e2d2e6 #e2d2e6;
       }
     
@@ -130,6 +135,22 @@ template.innerHTML = `
         visibility: collapse;
       }
 
+      .flex-container {
+        display: -webkit-box;      /* iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* Firefox 19 */
+        display: -ms-flexbox;      /* IE 10 */
+        display: -webkit-flex;     /* Chrome */
+        display: inline-flex;             /* Opera 12.1, Firefox 20+ */
+      }
+
+      .flex-item {
+        -webkit-box-flex: 1;      /* iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 1;         /* Firefox 19- */
+        -webkit-flex: 1;          /* Chrome */
+        -ms-flex: 1;              /* IE 10 */
+        flex: 1;                  /* Opera 12.1, Firefox 20+ */
+      }
+
       @keyframes add-message-animation {
         0% { transform: scale(0); }
         100% { transform: scale(1); }
@@ -137,7 +158,7 @@ template.innerHTML = `
     </style>
     
     <form class="form-chat">
-        <div class="chat-container"></div>
+        <div class="chat-container flex-container"></div>
     </form>
 `;
 
@@ -174,6 +195,7 @@ class MessageForm extends HTMLElement {
   onAttachClicked() {
     //  It's only test
     this.$input.$input.focus();
+    alert('hello');
   }
 
   onSubmit(event) {

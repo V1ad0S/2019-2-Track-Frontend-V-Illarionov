@@ -20,11 +20,12 @@ template.innerHTML = `
       }
 
       button {
+        display: -moz-inline-stack;
+        display: inline-block;
         height: 6vh;
         width: 6vh;
         color: #FFFC;
         background-color: #8E24AA;
-        display: inline-block;
         cursor: pointer;
         border: none;
         outline: none;

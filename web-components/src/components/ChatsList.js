@@ -17,7 +17,10 @@ const template = document.createElement('template');
 template.innerHTML = `
     <style>
       .chat-elem {
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
         display: inline-flex;
+        min-height: 11vh;
         flex-direction: row;
         line-height: 11vh;
         justify-content: space-between;
