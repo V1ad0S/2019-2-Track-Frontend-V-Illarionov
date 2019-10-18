@@ -32,7 +32,6 @@ template.innerHTML = `
         height: 85vh;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
         background-color: #EEE;
         overflow-y: scroll;
       }
@@ -141,7 +140,7 @@ template.innerHTML = `
         <div class="chat-container"></div>
     </form>
 `;
-/*  <form-input name="message-text" placeholder="Cообщение"></form-input>  */
+
 class MessageForm extends HTMLElement {
   constructor() {
     super();

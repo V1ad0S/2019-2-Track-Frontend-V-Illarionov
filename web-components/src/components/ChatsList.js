@@ -221,6 +221,7 @@ class ChatsList extends HTMLElement {
     chat.style.display = 'flex';
     this.$main_window.appendChild(chat);
     chat.$input.$input.focus();
+    chat.$chatContainer.scrollTop = 9999;
     this.$app_header.$companion_name.innerText = target.companion_name;
     this.$app_header.$message_form = chat;
     this.$chatlist_header.style.display = 'none';
