@@ -28,7 +28,6 @@ template.innerHTML = `
         display: -webkit-inline-flex;
         display: -ms-inline-flexbox;
         display: inline-flex;
-        min-height: 8vh;
         line-height: 4vh;
         max-width: 80%;
         min-width: 30%;
