@@ -107,7 +107,7 @@ template.innerHTML = `
         height: 0;
         right: -2vh;
         bottom: 1vh;
-        border: 2vh solid;
+        border: calc(1vh + 3px) solid;
         border-color: transparent transparent #e2d2e6 #e2d2e6;
       }
     
