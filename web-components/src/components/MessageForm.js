@@ -195,7 +195,6 @@ class MessageForm extends HTMLElement {
   onAttachClicked() {
     //  It's only test
     this.$input.$input.focus();
-    alert('hello');
   }
 
   onSubmit(event) {
