@@ -1,17 +1,3 @@
-const indicateArray = ['', '', ''];
-indicateArray[0] = '';
-indicateArray[1] = `
-    <svg class="tick" x="0px" y="0px" width="2vh" height="2vh" viewBox="0 0 448.8 448.8" style="fill: currentColor;" xml:space="preserve">
-        <polygon points="142.8,323.85 35.7,216.75 0,252.45 142.8,395.25 448.8,89.25 413.1,53.55"/>
-    </svg>
-`;
-indicateArray[2] = `
-    <svg class="double-tick" x ="0px" y="0px" width="2vh" height="2vh" viewBox="0 0 594.149 594.149" style="fill: currentColor;" xml:space="preserve">
-        <path d="M448.8,161.925l-35.7-35.7l-160.65,160.65l35.7,35.7L448.8,161.925z M555.899,126.225l-267.75,270.3l-107.1-107.1
-        l-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.7l-142.8-142.8L0,325.125z"/>
-    </svg>
-`;
-
 const template = document.createElement('template');
 template.innerHTML = `
     <style>
@@ -33,54 +19,25 @@ template.innerHTML = `
         display: flex;
         flex-direction: column;
         background-color: #EEE;
+
+        -webkit-overflow-scrolling: touch;
         overflow-y: scroll;
       }
     
       .message-container {
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
         line-height: 4vh;
         max-width: 80%;
         min-width: 30%;
-        display: inline-flex;
         flex-direction: column;
         border-radius: 1vh;
         margin-top: 1vh;
         margin-bottom: 1vh;
-      }
-    
-      .message-text {
-        color: black;
-        font-size: calc(2vh + 10px);
-        letter-spacing: 0.07em;
-        word-wrap: break-word;
-        word-break: break-word;
-        padding-left: 0.5em;
-        padding-right: 0.5em;
-        padding-top: 0.02em;
-        display: flex;
-        align-self: flex-start;
-        align-items: center;
-      }
-    
-      .message-info {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: flex-end;
-      }
 
-      .message-time {
-        user-select: none;
-        color: #777;
-        font-size: 2vh;
-        align-self: flex-end;
-        line-height: 3vh;
-        margin-right: 1vh;
-      }
-
-      .mes-indicator {
-        height: 3vh;
-        margin-right: 1vh;
-        color: #8E24AA;
+        animation-name: add-message-animation;
+        animation-duration: 0.5s;
       }
     
       .right-messages {
@@ -99,14 +56,14 @@ template.innerHTML = `
         height: 0;
         right: -2vh;
         bottom: 1vh;
-        border: 1vh solid;
+        border: calc(1vh + 3px) solid;
         border-color: transparent transparent #e2d2e6 #e2d2e6;
       }
     
       .left-messages {
         position: relative;
         justify-content: flex-start;
-        align-items: flex-start;
+        align-items: flex-end;
         align-self: flex-start;
         background-color: #FAFAFA;
         margin-left: 2vh;
@@ -126,13 +83,34 @@ template.innerHTML = `
       input[type=submit] {
         visibility: collapse;
       }
+
+      .flex-container {
+        display: -webkit-box;      /* iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* Firefox 19 */
+        display: -ms-flexbox;      /* IE 10 */
+        display: -webkit-flex;     /* Chrome */
+        display: inline-flex;             /* Opera 12.1, Firefox 20+ */
+      }
+
+      .flex-item {
+        -webkit-box-flex: 1;      /* iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 1;         /* Firefox 19- */
+        -webkit-flex: 1;          /* Chrome */
+        -ms-flex: 1;              /* IE 10 */
+        flex: 1;                  /* Opera 12.1, Firefox 20+ */
+      }
+
+      @keyframes add-message-animation {
+        0% { transform: scale(0); }
+        100% { transform: scale(1); }
+      }
     </style>
     
     <form class="form-chat">
-        <div class="chat-container"></div>
+        <div class="chat-container flex-container"></div>
     </form>
 `;
-/*  <form-input name="message-text" placeholder="Cообщение"></form-input>  */
+
 class MessageForm extends HTMLElement {
   constructor() {
     super();
@@ -197,37 +175,19 @@ class MessageForm extends HTMLElement {
   }
 
   addMessage(messageObj) {
-    const divFormatMessageContainer = document.createElement('div');
-    const divFormatMessageText = document.createElement('div');
-    const divFormatMessageInfo = document.createElement('div');
-    const divFormatMessageTime = document.createElement('span');
-    const divFormatIndicator = document.createElement('div');
+    const divFormatMessageContainer = document.createElement('message-container');
 
-    if (messageObj.messageAuthor === 'Me') {
-      divFormatMessageContainer.className = 'right-messages message-container';
-      const index = 1;
-      divFormatIndicator.innerHTML = indicateArray[index];
-    } else {
-      divFormatMessageContainer.className = 'left-messages message-container';
-    }
-
-    divFormatMessageText.className = 'message-text';
-    divFormatMessageText.innerText = messageObj.messageText;
-
-    divFormatMessageInfo.className = 'message-info';
-    divFormatIndicator.className = 'mes-indicator';
-    divFormatMessageTime.className = 'message-time';
+    divFormatMessageContainer.text = messageObj.messageText;
+    divFormatMessageContainer.author = messageObj.messageAuthor;
     const date = new Date(messageObj.sendingTime);
     let hours = date.getHours();
     let minutes = date.getMinutes();
     hours = (hours < 10) ? (`0${hours}`) : hours;
     minutes = (minutes < 10) ? (`0${minutes}`) : minutes;
-    divFormatMessageTime.innerText = `${hours}:${minutes}`;
+    divFormatMessageContainer.time = `${hours}:${minutes}`;
 
-    divFormatMessageInfo.appendChild(divFormatMessageTime);
-    divFormatMessageInfo.appendChild(divFormatIndicator);
-    divFormatMessageContainer.appendChild(divFormatMessageText);
-    divFormatMessageContainer.appendChild(divFormatMessageInfo);
+    divFormatMessageContainer.build();
+
     this.$chatContainer.appendChild(divFormatMessageContainer);
     this.$chatContainer.scrollTop = 9999;
   }
