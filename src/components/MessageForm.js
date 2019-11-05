@@ -15,7 +15,7 @@ export default function MessageForm(props) {
 	const [inputValue, setInputValue] = useState('');
 	const [messages, setMessages] = useState(messagesInit());
 
-	// setTimeout(scrollToBottom, 0);
+	setTimeout(scrollToBottom, 0);
 
 	function handleChange(event) {
 		const { value } = event.target;
@@ -44,12 +44,12 @@ export default function MessageForm(props) {
 
 	function handleAttach() {}
 
-	/* function scrollToBottom() {
+	function scrollToBottom() {
 		const chat = chatContainerRef.current;
 		setTimeout(() => {
 			chat.scrollTop = 9999;
 		}, 0);
-	} */
+	}
 
 	function messagesInit() {
 		const storageChatArray = JSON.parse(localStorage.getItem(chatsArrayKey));

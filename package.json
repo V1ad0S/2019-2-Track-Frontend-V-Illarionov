@@ -7,6 +7,8 @@
 	"dependencies": {
 		"@emotion/core": "^10.0.22",
 		"@emotion/styled": "^10.0.22",
+		"babel-plugin-lodash": "^3.3.4",
+		"babel-plugin-styled-components": "^1.10.6",
 		"cross-env": "^6.0.3",
 		"jest-transform-stub": "^2.0.0",
 		"node-sass": "^4.13.0",
@@ -63,7 +65,7 @@
 		"format:changed": "pretty-quick",
 		"format:staged": "pretty-quick --staged",
 		"eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-		"lint": "npm run lint:js && npm run lint:dup && npm run lint:css",
+		"lint": "npm run lint:js && npm run lint:dup",
 		"lint-fix": "eslint --fix",
 		"clean": "rm -rf dist",
 		"test": "npm run test:engine && npm run test:unit && npm run lint",
