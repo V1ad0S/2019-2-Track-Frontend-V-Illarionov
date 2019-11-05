@@ -1,26 +1,18 @@
-import React from 'react'
-import CounterContainer from '../containers/CounterContainer'
-import Header from '../components/Header'
-import { Router, Route, Switch } from 'react-router-dom'
-import { createBrowserHistory } from 'history'
-import styled from '@emotion/styled'
+import React from 'react';
+import { Router, Route, Switch } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+import AppContainer from '../containers/AppContainer';
 
-const Container = styled.div`
-  text-align: center;
-`
-export const history = createBrowserHistory()
+export const history = createBrowserHistory();
 
 function Routes() {
-  return (
-    <Router history={history}>
-      <Container>
-        <Header />
-        <Switch>
-          <Route path="/" component={CounterContainer} />
-        </Switch>
-      </Container>
-    </Router>
-  )
+	return (
+		<Router history={history}>
+			<Switch>
+				<Route path="/" component={AppContainer} />
+			</Switch>
+		</Router>
+	);
 }
 
-export default Routes
+export default Routes;

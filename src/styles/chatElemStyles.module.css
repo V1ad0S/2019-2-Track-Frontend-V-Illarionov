@@ -1,0 +1,84 @@
+.chat_elem {
+	display: inline-flex;
+	min-height: 11vh;
+	flex-direction: row;
+	line-height: 11vh;
+	justify-content: space-between;
+	align-items: center;
+	user-select: none;
+}
+.chat_elem:hover {
+	transition: 0.1s;
+	background: #0002;
+}
+.chat_elem:active {
+	transition: 0.2s;
+	background: #0004;
+}
+
+.companion_img {
+	color: #9c33ff;
+	height: 100%;
+	line-height: 11vh;
+	align-self: center;
+	margin-left: 1vh;
+}
+
+.companion_logo {
+	fill: currentColor;
+	height: 90%;
+	padding-top: 5%;
+}
+
+.text_info {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	flex-direction: row;
+	overflow: hidden;
+	border-bottom: 1px solid #0002;
+	margin-left: 2vh;
+}
+
+.message_preview {
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	padding-right: 2vh;
+	overflow: hidden;
+}
+
+.companion_name {
+	line-height: 4vh;
+	font-size: 3vh;
+	font-weight: 550;
+	overflow: hidden;
+}
+
+.lastmessage_text {
+	line-height: 4vh;
+	font-size: 2vh;
+	color: #0009;
+	overflow: hidden;
+}
+
+.lastmessage_info {
+	display: flex;
+	line-height: 100%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end;
+	margin-right: 3vh;
+}
+
+.lastmessage_time {
+	line-height: 4vh;
+	font-size: 2vh;
+}
+
+.indicator {
+	color: #8e24aa;
+}
