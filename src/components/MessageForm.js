@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import FormInput from './FormInput';
 import MessageElement from './MessageElement';
@@ -15,7 +15,9 @@ export default function MessageForm(props) {
 	const [inputValue, setInputValue] = useState('');
 	const [messages, setMessages] = useState(messagesInit());
 
-	setTimeout(scrollToBottom, 0);
+	useEffect(() => {
+		scrollToBottom();
+	});
 
 	function handleChange(event) {
 		const { value } = event.target;
@@ -113,6 +115,7 @@ export default function MessageForm(props) {
 				/>,
 			),
 		);
+		scrollToBottom();
 	}
 
 	function messageToLocal(messageObj) {

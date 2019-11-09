@@ -30,7 +30,7 @@ export default class AppContainer extends React.Component {
 				return;
 			}
 		}
-		const openedChatId = target.getAttribute('id');
+		const openedChatId = +target.getAttribute('id');
 		const storageChatArray = JSON.parse(localStorage.getItem(chatsArrayKey));
 		if (storageChatArray !== null) {
 			this.setState({

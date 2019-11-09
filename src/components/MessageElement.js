@@ -51,6 +51,6 @@ export default function MessageElement(props) {
 MessageElement.propTypes = {
 	messageText: PropTypes.string.isRequired,
 	messageTime: PropTypes.string.isRequired,
-	position: PropTypes.number.isRequired,
+	position: PropTypes.string.isRequired,
 	indicator: PropTypes.number.isRequired,
 };

@@ -9,6 +9,7 @@ export default function ChatList(props) {
 	let chatCount = 0;
 	const displayArray = [{ display: 'flex' }, { display: 'none' }];
 	const [chats, setChats] = useState(chatsInit());
+	const chatlistRef = React.createRef();
 
 	function getChatProps(chatObj) {
 		let lastmessageText = '';
@@ -36,6 +37,13 @@ export default function ChatList(props) {
 		};
 
 		return chatElemProps;
+	}
+
+	function scrollToBottom() {
+		const chatlist = chatlistRef.current;
+		setTimeout(() => {
+			chatlist.scrollTop = 9999;
+		}, 0);
 	}
 
 	function chatsInit() {
@@ -75,6 +83,7 @@ export default function ChatList(props) {
 		addChat(chatObj);
 		chatToLocal(chatObj);
 		chatCount += 1;
+		scrollToBottom();
 	}
 
 	function addChat(chatObj) {
@@ -104,7 +113,11 @@ export default function ChatList(props) {
 	}
 
 	return (
-		<div className={styles.chats_list} style={displayArray[props.isChatOpen]}>
+		<div
+			ref={chatlistRef}
+			className={styles.chats_list}
+			style={displayArray[props.isChatOpen]}
+		>
 			{chats}
 			<button
 				type="button"
