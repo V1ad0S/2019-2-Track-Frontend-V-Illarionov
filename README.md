@@ -1,2 +1,1 @@
-# 2019-2-Track-Frontend-V-Illarionov
-Учебный проект
+# Track Mail 2019 Vladislav

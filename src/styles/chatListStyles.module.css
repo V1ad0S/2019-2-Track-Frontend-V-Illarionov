@@ -1,0 +1,53 @@
+.chats_list {
+	display: flex;
+	flex-direction: column;
+	height: 91vh;
+	overflow-y: scroll;
+
+	animation-duration: 0.2s;
+	animation-timing-function: linear;
+}
+
+.create_chat {
+	position: fixed;
+	right: 3vh;
+	bottom: 3vh;
+	width: 8vh;
+	height: 8vh;
+	border-radius: 100%;
+	color: #0008;
+	background-color: #f5cf42;
+	display: inline-block;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	box-shadow: 0px 2px 4px 0px #000c;
+	transition: 0.2s;
+}
+.create_chat:hover {
+	animation: pulse 2s infinite;
+	background-color: #f5cf42;
+}
+.create_chat:active {
+	background: #f5cf42cc;
+}
+
+.create_chat_img {
+	width: 50%;
+	height: 50%;
+}
+
+@keyframes pulse {
+	0% {
+		-moz-box-shadow: 0 0 0 0 #f5cf42;
+		box-shadow: 0 0 0 0 #f5cf42;
+	}
+	70% {
+		-moz-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+		box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+	}
+	100% {
+		-moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+		box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+	}
+}

@@ -1,7 +1,7 @@
 {
-  "generator-track-mail": {
-    "promptValues": {
-      "authorName": "No.Name"
-    }
-  }
+	"generator-track-mail": {
+		"promptValues": {
+			"authorName": "Vladislav Illarionov"
+		}
+	}
 }

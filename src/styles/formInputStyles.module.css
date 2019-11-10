@@ -1,0 +1,80 @@
+.form_input {
+	height: 6vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	padding-left: 1vw;
+	border: 1px solid #0002;
+}
+
+.input {
+	border: 0;
+	outline: none;
+	width: calc(100% - 2px);
+	font-size: 3vh;
+}
+
+.attach_button {
+	background-color: inherit;
+	display: inline-block;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	border-radius: 100%;
+	transition: 0.2s;
+	color: #888;
+}
+.attach_button:focus {
+	color: #888c;
+}
+.attach_button:hover {
+	color: #888b;
+}
+.attach_button:active {
+	background: #0002;
+}
+
+.submit_button {
+	display: none;
+	background-color: inherit;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	border-radius: 100%;
+	color: #8e24aa;
+	overflow: hidden;
+	animation-name: show-submit-button;
+	animation-duration: 0.1s;
+	animation-timing-function: linear;
+}
+.submit_button:focus {
+	color: #8e24aacc;
+}
+.submit_button:hover {
+	color: #8e24aabb;
+}
+.submit_button:active {
+	background: #0002;
+}
+
+.attach_button_img {
+	height: 4vh;
+	padding-top: 4px;
+	fill: currentColor;
+}
+
+.submit_button_img {
+	height: 4vh;
+	padding-top: 4px;
+	fill: currentColor;
+}
+
+@keyframes show-submit-button {
+	0% {
+		width: 0;
+	}
+	100% {
+		width: 6vh;
+	}
+}
