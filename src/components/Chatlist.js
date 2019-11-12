@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import ChatElement from './ChatElement';
 import styles from '../styles/chatListStyles.module.css';
 
@@ -32,7 +31,6 @@ export default function ChatList(props) {
 			lastmessageText,
 			lastmessageTime,
 			companionName: chatObj.companion,
-			onClickFunc: props.openChatFunc,
 		};
 
 		return chatElemProps;
@@ -96,7 +94,6 @@ export default function ChatList(props) {
 					lastmessageText={chatElemProps.lastmessageText}
 					lastmessageTime={chatElemProps.lastmessageTime}
 					companionName={chatElemProps.companionName}
-					onClickFunc={chatElemProps.onClickFunc}
 				/>,
 			),
 		);
@@ -139,7 +136,3 @@ export default function ChatList(props) {
 		</div>
 	);
 }
-
-ChatList.propTypes = {
-	openChatFunc: PropTypes.func.isRequired,
-};

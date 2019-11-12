@@ -37,13 +37,7 @@ indicateArray[2] = (
 
 export default function ChatElement(props) {
 	return (
-		<Link
-			to="/chat"
-			id={props.id}
-			className={styles.chat_elem}
-			role="button"
-			onClick={props.onClickFunc}
-		>
+		<Link to={`/chat_id=${props.id}`} className={styles.chat_elem}>
 			<div className={styles.companion_img}>
 				<svg
 					className={styles.companion_logo}
@@ -95,7 +89,6 @@ export default function ChatElement(props) {
 }
 
 ChatElement.propTypes = {
-	onClickFunc: PropTypes.func.isRequired,
 	id: PropTypes.number.isRequired,
 	indicator: PropTypes.number.isRequired,
 	lastmessageText: PropTypes.string.isRequired,

@@ -1,15 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Link, useParams } from 'react-router-dom';
 import styles from '../styles/appHeaderStyles.module.css';
 
+const chatsArrayKey = 'chatsArray';
+
 export default function ChatHeader(props) {
+	const { chatId } = useParams();
+	const storageChatArray = JSON.parse(localStorage.getItem(chatsArrayKey));
+	let companionName = "Companion's name";
+	if (storageChatArray !== null) {
+		companionName = storageChatArray[chatId].companion;
+	}
+
 	return (
 		<div className={`${styles.app_header} ${styles.chat_header}`}>
-			<button
-				type="button"
-				className={`${styles.button_backward} ${styles.button}`}
-				onClick={props.backwardFunc}
-			>
+			<Link to="/" className={styles.button}>
 				<svg
 					className={styles.button_img}
 					x="0px"
@@ -20,7 +25,7 @@ export default function ChatHeader(props) {
 				>
 					<path d="M408,178.5H96.9L239.7,35.7L204,0L0,204l204,204l35.7-35.7L96.9,229.5H408V178.5z" />
 				</svg>
-			</button>
+			</Link>
 			<div className={styles.companion}>
 				<div className={styles.companion_image}>
 					<svg
@@ -54,7 +59,7 @@ export default function ChatHeader(props) {
 					</svg>
 				</div>
 				<div className={styles.companion_info}>
-					<span className={styles.companion_name}>{props.companionName}</span>
+					<span className={styles.companion_name}>{companionName}</span>
 					<span className={styles.companion_status}>была 2 часа назад</span>
 				</div>
 			</div>
@@ -94,8 +99,3 @@ export default function ChatHeader(props) {
 		</div>
 	);
 }
-
-ChatHeader.propTypes = {
-	backwardFunc: PropTypes.func.isRequired,
-	companionName: PropTypes.string.isRequired,
-};
