@@ -13,7 +13,7 @@ export default function ChatHeader(props) {
 	}
 
 	return (
-		<div className={`${styles.app_header} ${styles.chat_header}`}>
+		<div className={styles.app_header}>
 			<Link to="/" className={styles.button}>
 				<svg
 					className={styles.button_img}

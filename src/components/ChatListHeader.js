@@ -3,7 +3,7 @@ import styles from '../styles/appHeaderStyles.module.css';
 
 export default function ChatListHeader(props) {
 	return (
-		<div className={`${styles.app_header} ${styles.chatlist_header}`}>
+		<div className={styles.app_header}>
 			<button type="button" className={styles.button}>
 				<svg
 					className={styles.button_img}
