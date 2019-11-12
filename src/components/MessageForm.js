@@ -6,7 +6,6 @@ import styles from '../styles/messageFormStyles.module.css';
 
 export default function MessageForm(props) {
 	const { chatsArrayKey } = props;
-	const displayArray = [{ display: 'none' }, { display: 'flex' }];
 
 	const chatContainerRef = React.createRef();
 	let messagesCount = 0;
@@ -128,7 +127,7 @@ export default function MessageForm(props) {
 	}
 
 	return (
-		<div className={styles.message_form} style={displayArray[props.isChatOpen]}>
+		<div className={styles.message_form}>
 			<form className={styles.form_chat} onSubmit={handleSubmit}>
 				<div ref={chatContainerRef} className={styles.chat_container}>
 					{messages}
@@ -148,5 +147,4 @@ export default function MessageForm(props) {
 MessageForm.propTypes = {
 	chatsArrayKey: PropTypes.string.isRequired,
 	chatId: PropTypes.number.isRequired,
-	isChatOpen: PropTypes.number.isRequired,
 };

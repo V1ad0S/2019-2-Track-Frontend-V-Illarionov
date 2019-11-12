@@ -10,16 +10,14 @@
 }
 
 .chat_header {
-	height: 100%;
 	width: 100%;
-	display: none;
+	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
 }
 
 .chatlist_header {
-	height: 100%;
 	width: 100%;
 	display: flex;
 	flex-direction: row;

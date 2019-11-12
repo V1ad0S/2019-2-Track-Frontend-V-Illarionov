@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from '../styles/chatElemStyles.module.css';
 
@@ -36,7 +37,8 @@ indicateArray[2] = (
 
 export default function ChatElement(props) {
 	return (
-		<div
+		<Link
+			to="/chat"
 			id={props.id}
 			className={styles.chat_elem}
 			role="button"
@@ -88,7 +90,7 @@ export default function ChatElement(props) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</Link>
 	);
 }
 

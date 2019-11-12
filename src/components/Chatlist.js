@@ -7,7 +7,6 @@ const chatsArrayKey = 'chatsArray';
 
 export default function ChatList(props) {
 	let chatCount = 0;
-	const displayArray = [{ display: 'flex' }, { display: 'none' }];
 	const [chats, setChats] = useState(chatsInit());
 	const chatlistRef = React.createRef();
 
@@ -113,11 +112,7 @@ export default function ChatList(props) {
 	}
 
 	return (
-		<div
-			ref={chatlistRef}
-			className={styles.chats_list}
-			style={displayArray[props.isChatOpen]}
-		>
+		<div ref={chatlistRef} className={styles.chats_list}>
 			{chats}
 			<button
 				type="button"
@@ -146,6 +141,5 @@ export default function ChatList(props) {
 }
 
 ChatList.propTypes = {
-	isChatOpen: PropTypes.number.isRequired,
 	openChatFunc: PropTypes.func.isRequired,
 };
