@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import ChatList from '../components/Chatlist';
 import MessageForm from '../components/MessageForm';
 import '../styles/globalStyles.css';
