@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import FormInput from './FormInput';
 import MessageElement from './MessageElement';
-import styles from '../styles/messageFormStyles.module.css';
+import styles from '../styles/messageFormStyles.module.scss';
 
 const chatsArrayKey = 'chatsArray';
 

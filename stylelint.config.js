@@ -10,6 +10,7 @@ module.exports = {
 	plugins: ['stylelint-no-unsupported-browser-features', 'stylelint-a11y'],
 
 	rules: {
+		'scss/media-feature-value-dollar-variable': 'never',
 		// ignore special `var-` css variables for `:export`
 		'property-no-unknown': [
 			true,
@@ -27,7 +28,11 @@ module.exports = {
 			},
 		],
 
+		'plugin/stylelint-no-indistinguishable-colors': false,
+		'plugin/no-low-performance-animation-properties': null,
+
 		// a11y
 		'a11y/content-property-no-static-value': true,
+		'a11y/media-prefers-reduced-motion': null,
 	},
 };

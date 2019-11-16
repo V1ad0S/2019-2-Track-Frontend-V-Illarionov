@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ChatElement from './ChatElement';
-import styles from '../styles/chatListStyles.module.css';
+import styles from '../styles/chatListStyles.module.scss';
 
 import { ReactComponent as CreateSvg } from '../images/createchat_button.svg';
 

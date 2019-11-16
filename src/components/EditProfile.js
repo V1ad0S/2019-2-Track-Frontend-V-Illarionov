@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/editProfileStyles.module.css';
+import styles from '../styles/editProfileStyles.module.scss';
 
 import { ReactComponent as ProfileSvg } from '../images/edit_profile_img.svg';
 

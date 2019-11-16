@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles/formInputStyles.module.css';
+import styles from '../styles/formInputStyles.module.scss';
 
 import { ReactComponent as AttachSvg } from '../images/forminput_buttons/attach_button.svg';
 import { ReactComponent as SubmitSvg } from '../images/forminput_buttons/submit_button.svg';

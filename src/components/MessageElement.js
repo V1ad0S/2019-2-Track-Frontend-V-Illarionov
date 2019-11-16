@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles/messageElemStyles.module.css';
+import styles from '../styles/messageElemStyles.module.scss';
 
 import { ReactComponent as Tick } from '../images/indicators/tick.svg';
 import { ReactComponent as DoubleTick } from '../images/indicators/double_tick.svg';

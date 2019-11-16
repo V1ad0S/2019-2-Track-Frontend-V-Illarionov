@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import styles from '../styles/chatElemStyles.module.css';
+import styles from '../styles/chatElemStyles.module.scss';
 
 import { ReactComponent as Tick } from '../images/indicators/tick.svg';
 import { ReactComponent as DoubleTick } from '../images/indicators/double_tick.svg';
