@@ -28,6 +28,8 @@ module.exports = {
 			},
 		],
 
+		indentation: 'tab',
+
 		'plugin/stylelint-no-indistinguishable-colors': false,
 		'plugin/no-low-performance-animation-properties': null,
 
