@@ -4,7 +4,6 @@ import styles from '../styles/editProfileStyles.module.css';
 export default function EditProfile(props) {
 	function handleSubmit(event) {
 		event.preventDefault();
-		alert('Hello!');
 	}
 
 	function handleInvalid(event) {
