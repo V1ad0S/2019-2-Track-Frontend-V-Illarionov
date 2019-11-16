@@ -59,7 +59,8 @@
 }
 
 .attach_button_img {
-	height: 4vh;
+	height: 5vh;
+	width: 5vh;
 	padding-top: 4px;
 	fill: currentColor;
 }

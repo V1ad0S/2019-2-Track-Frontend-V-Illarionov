@@ -27,6 +27,8 @@
 }
 
 .companion_logo {
+	width: 7vh;
+	height: 7vh;
 	fill: currentColor;
 	height: 90%;
 	padding-top: 5%;
@@ -83,4 +85,10 @@
 
 .indicator {
 	color: #8e24aa;
+}
+
+.tick {
+	width: 3vh;
+	height: 3vh;
+	fill: currentColor;
 }

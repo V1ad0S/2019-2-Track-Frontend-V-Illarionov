@@ -96,6 +96,8 @@
 }
 
 .companion_logo {
+	width: 7vh;
+	height: 7vh;
 	fill: currentColor;
 }
 
