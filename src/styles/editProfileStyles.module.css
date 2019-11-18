@@ -1,0 +1,61 @@
+.profile_form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.profile_img_preview {
+	height: 80px;
+	width: 80px;
+	margin: 5vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 100%;
+	background-color: #666;
+	color: #eee;
+}
+
+.profile_input_div {
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	padding-left: 1em;
+	border-bottom: 0.1em solid #5558;
+	border-radius: 5px;
+	margin-bottom: 6vh;
+	background-color: #5552;
+}
+
+.profile_input {
+	height: 100%;
+	width: 100%;
+	font-size: 3vh;
+	border: 0;
+	outline: none;
+	background-color: transparent;
+	resize: none;
+}
+
+.field_info {
+	font-size: 0.8em;
+	font-weight: bold;
+}
+
+.fullname_input_div {
+	height: 3.5em;
+}
+
+.username_input_div {
+	height: 3.5em;
+}
+
+.biography_input_div {
+	height: 22vh;
+}
+
+.profile_img {
+	height: 30%;
+	width: 30%;
+	fill: currentColor;
+}

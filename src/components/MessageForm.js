@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 import FormInput from './FormInput';
 import MessageElement from './MessageElement';
 import styles from '../styles/messageFormStyles.module.css';
 
+const chatsArrayKey = 'chatsArray';
+
 export default function MessageForm(props) {
-	const { chatsArrayKey } = props;
-	const displayArray = [{ display: 'none' }, { display: 'flex' }];
+	const { chatId } = useParams();
 
 	const chatContainerRef = React.createRef();
 	let messagesCount = 0;
@@ -55,7 +56,7 @@ export default function MessageForm(props) {
 
 	function messagesInit() {
 		const storageChatArray = JSON.parse(localStorage.getItem(chatsArrayKey));
-		const chatObj = storageChatArray[props.chatId];
+		const chatObj = storageChatArray[chatId];
 		const messagesInitArray = [];
 		for (; messagesCount < chatObj.messages.length; messagesCount += 1) {
 			const messageElemProps = getMessageProps(chatObj.messages[messagesCount]);
@@ -120,15 +121,15 @@ export default function MessageForm(props) {
 
 	function messageToLocal(messageObj) {
 		const storageChatArray = JSON.parse(localStorage.getItem(chatsArrayKey));
-		if (storageChatArray[props.chatId].messages.length === 0) {
-			storageChatArray[props.chatId].messages = [];
+		if (storageChatArray[chatId].messages.length === 0) {
+			storageChatArray[chatId].messages = [];
 		}
-		storageChatArray[props.chatId].messages.push(messageObj);
+		storageChatArray[chatId].messages.push(messageObj);
 		localStorage.setItem(chatsArrayKey, JSON.stringify(storageChatArray));
 	}
 
 	return (
-		<div className={styles.message_form} style={displayArray[props.isChatOpen]}>
+		<div className={styles.message_form}>
 			<form className={styles.form_chat} onSubmit={handleSubmit}>
 				<div ref={chatContainerRef} className={styles.chat_container}>
 					{messages}
@@ -144,9 +145,3 @@ export default function MessageForm(props) {
 		</div>
 	);
 }
-
-MessageForm.propTypes = {
-	chatsArrayKey: PropTypes.string.isRequired,
-	chatId: PropTypes.number.isRequired,
-	isChatOpen: PropTypes.number.isRequired,
-};

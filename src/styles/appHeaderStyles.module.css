@@ -7,19 +7,6 @@
 	justify-content: space-between;
 	box-shadow: 0 0 5px 2px;
 	user-select: none;
-}
-
-.chat_header {
-	height: 100%;
-	width: 100%;
-	display: none;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.chatlist_header {
-	height: 100%;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
@@ -28,7 +15,9 @@
 }
 
 .button {
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	height: 6vh;
 	width: 6vh;
 	color: #fffc;
@@ -107,6 +96,8 @@
 }
 
 .companion_logo {
+	width: 7vh;
+	height: 7vh;
 	fill: currentColor;
 }
 
