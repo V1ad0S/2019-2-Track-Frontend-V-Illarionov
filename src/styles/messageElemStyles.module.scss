@@ -1,19 +1,25 @@
 :root {
 	--text-font-size: calc(2vh + 10px);
-	--time-font-size: 2vh;
+	--time-font-size: 1em;
+	--links-text-size: 0.8em;
 }
 
 .message_element {
 	display: inline-flex;
 	line-height: 4vh;
-	max-width: 80%;
-	min-width: 30%;
+	max-width: 80vw;
+	min-width: 10vw;
 	flex-direction: column;
 	border-radius: 1vh;
 	margin-top: 1vh;
 	margin-bottom: 1vh;
 	animation-name: add-message-animation;
 	animation-duration: 0.5s;
+}
+
+.link {
+	display: inline;
+	font-size: var(--links-text-size);
 }
 
 .message_text {
@@ -25,7 +31,7 @@
 	padding-left: 0.5em;
 	padding-right: 0.5em;
 	padding-top: 0.02em;
-	display: flex;
+	display: block;
 	align-self: flex-start;
 	align-items: center;
 }
@@ -56,6 +62,12 @@
 	width: 2vh;
 	height: 2vh;
 	fill: currentColor;
+}
+
+.image {
+	max-height: 40vh;
+	max-width: 60vw;
+	margin: 1vh;
 }
 
 .right_messages {
