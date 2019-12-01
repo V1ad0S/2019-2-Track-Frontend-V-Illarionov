@@ -20,7 +20,7 @@ export default function ChatList(props) {
 		if (chatObj.messages.length !== 0) {
 			indicator = 1;
 			const lastmessageObj = chatObj.messages[chatObj.messages.length - 1];
-			lastmessageText = lastmessageObj.messageText;
+			lastmessageText = lastmessageObj.messageContent;
 			lastmessageTime = new Date(lastmessageObj.messageTime)
 				.toTimeString()
 				.slice(0, 5);

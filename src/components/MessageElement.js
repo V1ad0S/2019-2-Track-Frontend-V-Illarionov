@@ -37,11 +37,11 @@ function MessageContent(props) {
 		content = (
 			<img
 				className={styles.image}
-				src={props.messageContent[0]}
-				alt={props.messageContent[0]}
+				src={props.messageContent}
+				alt={props.messageContent}
 				onLoad={() => {
 					message.current.scrollIntoView();
-					window.URL.revokeObjectURL(props.messageContent[0]);
+					window.URL.revokeObjectURL(props.messageContent);
 				}}
 			/>
 		);

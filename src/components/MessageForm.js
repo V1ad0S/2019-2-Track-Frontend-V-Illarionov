@@ -16,11 +16,14 @@ export default function MessageForm(props) {
 	function handleImage(event, files = event.target.files) {
 		if (files.length) {
 			const data = new FormData();
-			const src = [];
+			const src = window.URL.createObjectURL(files[0]);
+			data.append('image', files);
+			/*
 			for (let i = 0; i < files.length; i += 1) {
 				src[i] = window.URL.createObjectURL(files[i]);
 				data.append('image', files[i]);
 			}
+			*/
 			const messageObj = createMessageObj(src, 'img');
 			addMessage(messageObj);
 			fetch('https://tt-front.now.sh/upload', {
@@ -31,16 +34,32 @@ export default function MessageForm(props) {
 	}
 
 	function handleRecordStart() {
-		function recordAudio(stream) {
-			const mediaRecorder = new MediaRecorder(stream);
+		function manageEnter(enable) {
+			const input = document.getElementById('input');
+			const buttonImage = document.getElementById('bImage');
+			const buttonGeo = document.getElementById('bGeo');
 
+			if (enable === false) {
+				input.disabled = true;
+				buttonImage.disabled = true;
+				buttonGeo.disabled = true;
+			} else {
+				input.removeAttribute('disabled');
+				buttonImage.removeAttribute('disabled');
+				buttonGeo.removeAttribute('disabled');
+			}
+		}
+
+		function recordAudio(stream) {
 			const buttonStart = document.getElementById('start');
 			const buttonStop = document.getElementById('stop');
+			const mediaRecorder = new MediaRecorder(stream);
+			mediaRecorder.start();
 
 			buttonStop.style.display = 'block';
 			buttonStart.style.display = 'none';
 
-			mediaRecorder.start();
+			manageEnter(false);
 
 			let chunks = [];
 
@@ -53,6 +72,12 @@ export default function MessageForm(props) {
 				chunks = [];
 				const audioURL = URL.createObjectURL(blob);
 				addMessage(createMessageObj(audioURL, 'audio'));
+				const data = new FormData();
+				data.append('audio', blob);
+				fetch('https://tt-front.now.sh/upload', {
+					method: 'POST',
+					body: data,
+				});
 			});
 
 			buttonStop.addEventListener(
@@ -61,6 +86,7 @@ export default function MessageForm(props) {
 					mediaRecorder.stop();
 					buttonStop.style.display = 'none';
 					buttonStart.style.display = 'block';
+					manageEnter(true);
 				},
 				{ once: true },
 			);

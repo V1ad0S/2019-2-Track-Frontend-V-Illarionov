@@ -15,6 +15,7 @@ export default function FormInput(props) {
 	return (
 		<div className={styles.form_input}>
 			<input
+				id="input"
 				className={styles.input}
 				type="text"
 				value={props.value}
@@ -22,8 +23,8 @@ export default function FormInput(props) {
 				onChange={props.onChange}
 			/>
 			<button
-				type="button"
 				id="start"
+				type="button"
 				className={styles.attach_button}
 				onClick={props.handleRecordStart}
 			>
@@ -38,6 +39,7 @@ export default function FormInput(props) {
 				<StopSvg className={styles.attach_button_img} />
 			</button>
 			<button
+				id="bImage"
 				type="button"
 				className={styles.attach_button}
 				onClick={(e) => {
@@ -51,12 +53,12 @@ export default function FormInput(props) {
 			<input
 				type="file"
 				ref={imgInput}
-				multiple
 				accept="image/*"
 				style={{ display: 'none' }}
 				onChange={props.handleImage}
 			/>
 			<button
+				id="bGeo"
 				type="button"
 				className={styles.attach_button}
 				onClick={props.attachFunc}
