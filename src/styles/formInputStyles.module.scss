@@ -1,18 +1,21 @@
+:root {
+	--input-font-size: 3vh;
+}
+
 .form_input {
 	height: 6vh;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-
 	padding-left: 1vw;
-	border: 1px solid #0002;
+	border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .input {
 	border: 0;
 	outline: none;
 	width: calc(100% - 2px);
-	font-size: 3vh;
+	font-size: var(--input-font-size);
 }
 
 .attach_button {
@@ -23,16 +26,19 @@
 	outline: none;
 	border-radius: 100%;
 	transition: 0.2s;
-	color: #888;
-}
-.attach_button:focus {
-	color: #888c;
-}
-.attach_button:hover {
-	color: #888b;
-}
-.attach_button:active {
-	background: #0002;
+	color: rgb(136, 136, 136);
+
+	&:focus {
+		color: rgba(136, 136, 136, 0.8);
+	}
+
+	&:hover {
+		color: rgba(136, 136, 136, 0.7);
+	}
+
+	&:active {
+		background: rgba(0, 0, 0, 0.2);
+	}
 }
 
 .submit_button {
@@ -42,20 +48,23 @@
 	border: none;
 	outline: none;
 	border-radius: 100%;
-	color: #8e24aa;
+	color: var(--main-bg-color);
 	overflow: hidden;
 	animation-name: show-submit-button;
 	animation-duration: 0.1s;
 	animation-timing-function: linear;
-}
-.submit_button:focus {
-	color: #8e24aacc;
-}
-.submit_button:hover {
-	color: #8e24aabb;
-}
-.submit_button:active {
-	background: #0002;
+
+	&:focus {
+		color: rgba(142, 36, 170, 0.8);
+	}
+
+	&:hover {
+		color: rgba(142, 36, 170, 0.7);
+	}
+
+	&:active {
+		background: rgba(0, 0, 0, 0.2);
+	}
 }
 
 .attach_button_img {
@@ -63,6 +72,7 @@
 	width: 5vh;
 	padding-top: 4px;
 	fill: currentColor;
+	pointer-events: none;
 }
 
 .submit_button_img {
@@ -75,6 +85,7 @@
 	0% {
 		width: 0;
 	}
+
 	100% {
 		width: 6vh;
 	}

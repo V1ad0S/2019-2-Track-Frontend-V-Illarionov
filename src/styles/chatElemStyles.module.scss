@@ -1,3 +1,8 @@
+:root {
+	--companion-name-font-size: 3vh;
+	--last-message-text-font-size: 2vh;
+}
+
 .chat_elem {
 	display: inline-flex;
 	min-height: 11vh;
@@ -8,18 +13,21 @@
 	user-select: none;
 	text-decoration: none;
 	color: inherit;
-}
-.chat_elem:hover {
-	transition: 0.1s;
-	background: #0002;
-}
-.chat_elem:active {
-	transition: 0.2s;
-	background: #0004;
+
+	&:focus,
+	&:hover {
+		transition: 0.1s;
+		background: rgba(0, 0, 0, 0.2);
+	}
+
+	&:active {
+		transition: 0.2s;
+		background: rgba(0, 0, 0, 0.3);
+	}
 }
 
 .companion_img {
-	color: #9c33ff;
+	color: rgb(156, 51, 255);
 	height: 100%;
 	line-height: 11vh;
 	align-self: center;
@@ -28,9 +36,8 @@
 
 .companion_logo {
 	width: 7vh;
-	height: 7vh;
-	fill: currentColor;
 	height: 90%;
+	fill: currentColor;
 	padding-top: 5%;
 }
 
@@ -41,7 +48,7 @@
 	height: 100%;
 	flex-direction: row;
 	overflow: hidden;
-	border-bottom: 1px solid #0002;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 	margin-left: 2vh;
 }
 
@@ -57,15 +64,15 @@
 
 .companion_name {
 	line-height: 4vh;
-	font-size: 3vh;
+	font-size: var(--companion-name-font-size);
 	font-weight: 550;
 	overflow: hidden;
 }
 
 .lastmessage_text {
 	line-height: 4vh;
-	font-size: 2vh;
-	color: #0009;
+	font-size: var(--last-message-text-font-size);
+	color: rgba(0, 0, 0, 0.6);
 	overflow: hidden;
 }
 
@@ -80,11 +87,11 @@
 
 .lastmessage_time {
 	line-height: 4vh;
-	font-size: 2vh;
+	font-size: var(--last-message-text-font-size);
 }
 
 .indicator {
-	color: #8e24aa;
+	color: var(--main-bg-color);
 }
 
 .tick {

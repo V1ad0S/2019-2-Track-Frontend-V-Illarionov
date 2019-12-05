@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ChatElement from './ChatElement';
-import styles from '../styles/chatListStyles.module.css';
+import styles from '../styles/chatListStyles.module.scss';
 
 import { ReactComponent as CreateSvg } from '../images/createchat_button.svg';
 
@@ -20,10 +20,8 @@ export default function ChatList(props) {
 		if (chatObj.messages.length !== 0) {
 			indicator = 1;
 			const lastmessageObj = chatObj.messages[chatObj.messages.length - 1];
-			lastmessageText = lastmessageObj.messageText;
-			lastmessageTime = new Date(lastmessageObj.messageTime)
-				.toTimeString()
-				.slice(0, 5);
+			lastmessageText = lastmessageObj.messageContent;
+			lastmessageTime = new Date(lastmessageObj.messageTime).toTimeString().slice(0, 5);
 		}
 
 		const chatElemProps = {
@@ -113,11 +111,7 @@ export default function ChatList(props) {
 	return (
 		<div ref={chatlistRef} className={styles.chats_list}>
 			{chats}
-			<button
-				type="button"
-				className={styles.create_chat}
-				onClick={handleCreateChat}
-			>
+			<button type="button" className={styles.create_chat} onClick={handleCreateChat}>
 				<CreateSvg className={styles.create_chat_img} />
 			</button>
 		</div>

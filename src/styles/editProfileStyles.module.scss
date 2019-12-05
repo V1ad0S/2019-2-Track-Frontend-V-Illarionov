@@ -1,3 +1,8 @@
+:root {
+	--input-font-size: 3vh;
+	--field-info-font-size: 0.8em;
+}
+
 .profile_form {
 	display: flex;
 	flex-direction: column;
@@ -12,8 +17,8 @@
 	align-items: center;
 	justify-content: center;
 	border-radius: 100%;
-	background-color: #666;
-	color: #eee;
+	background-color: rgb(102, 102, 102);
+	color: rgb(238, 238, 238);
 }
 
 .profile_input_div {
@@ -21,16 +26,16 @@
 	display: flex;
 	flex-direction: column;
 	padding-left: 1em;
-	border-bottom: 0.1em solid #5558;
+	border-bottom: 0.1em solid rgba(85, 85, 85, 0.6);
 	border-radius: 5px;
 	margin-bottom: 6vh;
-	background-color: #5552;
+	background-color: rgba(85, 85, 85, 0.2);
 }
 
 .profile_input {
 	height: 100%;
 	width: 100%;
-	font-size: 3vh;
+	font-size: var(--input-font-size);
 	border: 0;
 	outline: none;
 	background-color: transparent;
@@ -38,8 +43,8 @@
 }
 
 .field_info {
-	font-size: 0.8em;
-	font-weight: bold;
+	font-size: var(--field-info-font-size);
+	font-weight: 700;
 }
 
 .fullname_input_div {

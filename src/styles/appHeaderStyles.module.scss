@@ -1,16 +1,20 @@
+:root {
+	--z-index-for-header: 1;
+	--header-title-font-size: 4vh;
+	--companion-name-font-size: 3vh;
+	--companion-status-font-size: 2vh;
+}
+
 .app_header {
-	z-index: 1;
+	z-index: var(--z-index-for-header);
 	height: 9vh;
-	background-color: #8e24aa;
+	background-color: var(--main-bg-color);
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	box-shadow: 0 0 5px 2px;
 	user-select: none;
 	width: 100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
 	align-items: center;
 }
 
@@ -20,26 +24,29 @@
 	justify-content: center;
 	height: 6vh;
 	width: 6vh;
-	color: #fffc;
-	background-color: #8e24aa;
+	color: rgba(255, 255, 255, 204);
+	background-color: var(--main-bg-color);
 	cursor: pointer;
 	border: none;
 	outline: none;
 	border-radius: 100%;
 	transition: 0.2s;
 	margin: 3%;
-}
-.button:focus {
-	color: #ffff;
-}
-.button:hover {
-	background-color: #0002;
-	animation-name: button-hover-animation;
-	animation-duration: 0.4s;
-	animation-timing-function: linear;
-}
-.button:active {
-	background: #0005;
+
+	&:focus {
+		color: rgb(255, 255, 255);
+	}
+
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.2);
+		animation-name: button-hover-animation;
+		animation-duration: 0.4s;
+		animation-timing-function: linear;
+	}
+
+	&:active {
+		background: rgba(0, 0, 0, 0.4);
+	}
 }
 
 .button_img {
@@ -52,8 +59,8 @@
 	line-height: 5vh;
 	font-weight: 600;
 	margin-left: -20vw;
-	font-size: 4vh;
-	color: #fff;
+	font-size: var(--header-title-font-size);
+	color: rgb(255, 255, 255);
 }
 
 .companion {
@@ -83,15 +90,15 @@
 	max-width: 40vw;
 	overflow-x: hidden;
 	line-height: 4vh;
-	font-weight: bold;
-	font-size: 3vh;
-	color: white;
+	font-weight: 700;
+	font-size: var(--companion-name-font-size);
+	color: rgb(255, 255, 255);
 }
 
 .companion_status {
-	font-size: 2vh;
+	font-size: var(--companion-status-font-size);
 	font-weight: 200;
-	color: #d1a7dd;
+	color: rgb(209, 167, 221);
 	align-self: center;
 }
 
@@ -103,9 +110,10 @@
 
 @keyframes button-hover-animation {
 	0% {
-		box-shadow: 0px 0px 0 6vh inset #8e24aa;
+		box-shadow: 0 0 0 6vh inset var(--main-bg-color);
 	}
+
 	100% {
-		box-shadow: 0px 0px 0 0 inset #8e24aa;
+		box-shadow: 0 0 0 0 inset var(--main-bg-color);
 	}
 }

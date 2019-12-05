@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from '../styles/appHeaderStyles.module.css';
+import styles from '../styles/appHeaderStyles.module.scss';
 
 import { ReactComponent as BackwardSvg } from '../images/header_buttons/backward_button.svg';
 import { ReactComponent as Tick } from '../images/indicators/tick.svg';
