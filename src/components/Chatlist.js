@@ -21,9 +21,7 @@ export default function ChatList(props) {
 			indicator = 1;
 			const lastmessageObj = chatObj.messages[chatObj.messages.length - 1];
 			lastmessageText = lastmessageObj.messageContent;
-			lastmessageTime = new Date(lastmessageObj.messageTime)
-				.toTimeString()
-				.slice(0, 5);
+			lastmessageTime = new Date(lastmessageObj.messageTime).toTimeString().slice(0, 5);
 		}
 
 		const chatElemProps = {
@@ -113,11 +111,7 @@ export default function ChatList(props) {
 	return (
 		<div ref={chatlistRef} className={styles.chats_list}>
 			{chats}
-			<button
-				type="button"
-				className={styles.create_chat}
-				onClick={handleCreateChat}
-			>
+			<button type="button" className={styles.create_chat} onClick={handleCreateChat}>
 				<CreateSvg className={styles.create_chat_img} />
 			</button>
 		</div>

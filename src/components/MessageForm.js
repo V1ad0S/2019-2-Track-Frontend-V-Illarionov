@@ -163,11 +163,7 @@ export default function MessageForm(props) {
 				timeout: 27000,
 			};
 
-			navigator.geolocation.getCurrentPosition(
-				geoSuccess,
-				geoError,
-				geoOptions,
-			);
+			navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
 		} else {
 			alert('Your browser does not support geolocation!');
 		}
@@ -203,9 +199,7 @@ export default function MessageForm(props) {
 
 		const indicator = 1;
 
-		const messageTime = new Date(messageObj.messageTime)
-			.toTimeString()
-			.slice(0, 5);
+		const messageTime = new Date(messageObj.messageTime).toTimeString().slice(0, 5);
 
 		const resultMessage = (
 			<MessageElement
