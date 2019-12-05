@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/2019-2-Track-Frontend-V-Illarionov/static/css/main.68ca9ec7.chunk.css",
+    "main.js": "/2019-2-Track-Frontend-V-Illarionov/static/js/main.108b88bf.chunk.js",
+    "main.js.map": "/2019-2-Track-Frontend-V-Illarionov/static/js/main.108b88bf.chunk.js.map",
+    "runtime-main.js": "/2019-2-Track-Frontend-V-Illarionov/static/js/runtime-main.d4f64d50.js",
+    "runtime-main.js.map": "/2019-2-Track-Frontend-V-Illarionov/static/js/runtime-main.d4f64d50.js.map",
+    "static/js/2.11415dd4.chunk.js": "/2019-2-Track-Frontend-V-Illarionov/static/js/2.11415dd4.chunk.js",
+    "static/js/2.11415dd4.chunk.js.map": "/2019-2-Track-Frontend-V-Illarionov/static/js/2.11415dd4.chunk.js.map",
+    "index.html": "/2019-2-Track-Frontend-V-Illarionov/index.html",
+    "precache-manifest.73762763db538e0f25ab1522fb60110f.js": "/2019-2-Track-Frontend-V-Illarionov/precache-manifest.73762763db538e0f25ab1522fb60110f.js",
+    "service-worker.js": "/2019-2-Track-Frontend-V-Illarionov/service-worker.js",
+    "static/css/main.68ca9ec7.chunk.css.map": "/2019-2-Track-Frontend-V-Illarionov/static/css/main.68ca9ec7.chunk.css.map",
+    "static/media/audiorecordstart_button.799dbb14.svg": "/2019-2-Track-Frontend-V-Illarionov/static/media/audiorecordstart_button.799dbb14.svg",
+    "static/media/audiorecordstop_button.36239a46.svg": "/2019-2-Track-Frontend-V-Illarionov/static/media/audiorecordstop_button.36239a46.svg",
+    "static/media/backward_button.a0a4db7f.svg": "/2019-2-Track-Frontend-V-Illarionov/static/media/backward_button.a0a4db7f.svg",
+    "static/media/companion_logo.3664fbdc.svg": "/2019-2-Track-Frontend-V-Illarionov/static/media/companion_logo.3664fbdc.svg",
+    "static/media/createchat_button.35407f34.svg": "/2019-2-Track-Frontend-V-Illarionov/static/media/createchat_button.35407f34.svg",
+    "static/media/double_tick.fd88921a.svg": "/2019-2-Track-Frontend-V-Illarionov/static/media/double_tick.fd88921a.svg",
+    "static/media/edit_profile_img.ce4052ff.svg": "/2019-2-Track-Frontend-V-Illarionov/static/media/edit_profile_img.ce4052ff.svg",
+    "static/media/geolocation_button.46967ed6.svg": "/2019-2-Track-Frontend-V-Illarionov/static/media/geolocation_button.46967ed6.svg",
+    "static/media/imgupload_button.3520e662.svg": "/2019-2-Track-Frontend-V-Illarionov/static/media/imgupload_button.3520e662.svg",
+    "static/media/menu_button.b11b5f29.svg": "/2019-2-Track-Frontend-V-Illarionov/static/media/menu_button.b11b5f29.svg",
+    "static/media/search_button.6608f2b8.svg": "/2019-2-Track-Frontend-V-Illarionov/static/media/search_button.6608f2b8.svg",
+    "static/media/settings_button.90709bf0.svg": "/2019-2-Track-Frontend-V-Illarionov/static/media/settings_button.90709bf0.svg",
+    "static/media/submit_button.5a87552b.svg": "/2019-2-Track-Frontend-V-Illarionov/static/media/submit_button.5a87552b.svg",
+    "static/media/tick.f0b9c312.svg": "/2019-2-Track-Frontend-V-Illarionov/static/media/tick.f0b9c312.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d4f64d50.js",
+    "static/js/2.11415dd4.chunk.js",
+    "static/css/main.68ca9ec7.chunk.css",
+    "static/js/main.108b88bf.chunk.js"
+  ]
+}
