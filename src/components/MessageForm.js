@@ -11,7 +11,7 @@ export default function MessageForm(props) {
 
 	const [submitButtonDisplayStyle, letSubmitButtonShow] = useState('none');
 	const [inputValue, setInputValue] = useState('');
-	const [messages, setMessages] = useState(messagesInit());
+	const [messages, setMessages] = useState(messagesInit);
 
 	function handleImage(event, files = event.target.files) {
 		if (files.length) {
@@ -146,8 +146,7 @@ export default function MessageForm(props) {
 	function handleAttachGeo() {
 		if ('geolocation' in navigator) {
 			const geoSuccess = (position) => {
-				const { latitude } = position.coords;
-				const { longitude } = position.coords;
+				const { latitude, longitude } = position.coords;
 				const pos = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
 				const messageObj = createMessageObj(pos);
 				addMessage(messageObj);
@@ -180,7 +179,7 @@ export default function MessageForm(props) {
 		const messagesInitArray = [];
 
 		for (let i = 0; i < chatObj.messages.length; i += 1) {
-			messagesInitArray.push(buildMessage(chatObj.messages[i], i));
+			messagesInitArray.push(chatObj.messages[i]);
 		}
 
 		return messagesInitArray;
@@ -196,7 +195,7 @@ export default function MessageForm(props) {
 		return messageObj;
 	}
 
-	function buildMessage(messageObj, key = messages.length) {
+	function buildMessage(messageObj, key) {
 		let position = 'right_messages';
 		if (messageObj.messageAuthor !== 'Me') {
 			position = 'left_messages';
@@ -222,8 +221,17 @@ export default function MessageForm(props) {
 		return resultMessage;
 	}
 
+	function messagesReact() {
+		const messagesR = [];
+		for (let i = 0; i < messages.length; i += 1) {
+			messagesR.push(buildMessage(messages[i], i));
+		}
+
+		return messagesR;
+	}
+
 	function addMessage(messageObj) {
-		setMessages(messages.concat(buildMessage(messageObj)));
+		setMessages(messages.concat(messageObj));
 	}
 
 	function messageToLocal(messageObj) {
@@ -244,7 +252,7 @@ export default function MessageForm(props) {
 					onDragOver={preventAndStop}
 					onDrop={drop}
 				>
-					{messages}
+					{messagesReact()}
 				</div>
 				<FormInput
 					placeholder="Сообщение"
