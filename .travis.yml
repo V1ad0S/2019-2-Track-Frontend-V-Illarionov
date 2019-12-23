@@ -14,7 +14,7 @@ before_install:
 
 deploy:
   provider: pages
-  skip_cleanup: true
+  skip_cleanup: false
   github_token: $repo_token
   local_dir: build
   on:

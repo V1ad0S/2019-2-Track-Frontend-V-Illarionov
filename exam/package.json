@@ -1,7 +1,7 @@
 {
 	"name": "exam",
+	"homepage": "https://v1ad0s.github.io/2019-2-Track-Frontend-V-Illarionov",
 	"version": "0.1.0",
-	"private": true,
 	"author": "Vladislav Illarionov",
 	"dependencies": {
 		"@emotion/core": "^10.0.22",
