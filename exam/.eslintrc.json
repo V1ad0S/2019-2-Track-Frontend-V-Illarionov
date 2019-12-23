@@ -1,0 +1,58 @@
+{
+	"extends": ["airbnb", "react-app", "prettier", "prettier/react", "plugin:react/recommended"],
+	"root": true,
+	"plugins": ["import", "babel", "react", "prettier"],
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"ecmaVersion": 2018,
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"sourceType": "module"
+	},
+	"settings": {
+		"react": {
+			"version": "16.8"
+		},
+		"import/resolver": {
+			"node": {
+				"moduleDirectory": ["node_modules", "/"]
+			}
+		}
+	},
+	"env": {
+		"es6": true,
+		"jest": true,
+		"browser": true,
+		"node": true
+	},
+	"globals": {
+		"DEBUG": false
+	},
+	"rules": {
+		"react/jsx-fragments": 0,
+		"react/no-access-state-in-setstate": 0,
+		"react/prefer-stateless-function": 0,
+		"react/destructuring-assignment": 0,
+		"react/forbid-prop-types": 0,
+		"react/display-name": 0,
+		"jsx-a11y/interactive-supports-focus": 0,
+		"jsx-a11y/click-events-have-key-events": 0,
+		"jsx-a11y/media-has-caption": 0,
+		"import/no-named-as-default": 0,
+		"react/jsx-filename-extension": [
+			1,
+			{
+				"extensions": [".js", ".jsx"]
+			}
+		],
+		"import/no-extraneous-dependencies": 0,
+		"import/no-unresolved": 0,
+		"import/extensions": 0,
+		"import/prefer-default-export": 0,
+		"import/first": 0,
+		"no-param-reassign": 0,
+		"indent": ["error", "tab", { "SwitchCase": 1 }],
+		"no-tabs": ["error", { "allowIndentationTabs": true }]
+	}
+}

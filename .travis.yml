@@ -9,6 +9,9 @@ script:
   - npm run test
   - npm run build
 
+before_install:
+  - cd exam
+
 deploy:
   provider: pages
   skip_cleanup: true
@@ -18,4 +21,4 @@ deploy:
     branch:
       - master
       - devel
-      - hw7
+      - exam
