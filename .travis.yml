@@ -14,9 +14,9 @@ before_install:
 
 deploy:
   provider: pages
-  skip_cleanup: false
+  skip_cleanup: true
   github_token: $repo_token
-  local_dir: build
+  local_dir: exam/build
   on:
     branch:
       - master
