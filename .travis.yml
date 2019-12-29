@@ -1,21 +1,27 @@
 language: node_js
+
 node_js:
   - 'stable'
-cache:
-  directories:
-    - node_modules
+
+# cache:
+# directories:
+# - node_modules
+
 script:
   - npm run lint
   - npm run test
   - npm run build
 
+before_install:
+  - cd exam
+
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $repo_token
-  local_dir: build
+  local_dir: exam/build
   on:
     branch:
       - master
       - devel
-      - hw7
+      - exam
